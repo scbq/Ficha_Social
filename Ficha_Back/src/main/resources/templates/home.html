@@ -1,0 +1,32 @@
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Inicio</title>
+    <!-- Opcional: enlazar CSS básico si lo pones en src/main/resources/static/css/style.css -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/style.css" /> -->
+</head>
+<body>
+
+    <header>
+        <!-- Usamos la expresión de Thymeleaf th:text para mostrar el valor del modelo "titulo" -->
+        <h1 th:text="${titulo}">Título de bienvenida por defecto</h1>
+    </header>
+
+    <main>
+        <p th:text="${mensaje}">Mensaje por defecto.</p>
+        
+        <h2>Opciones del Menú:</h2>
+        <ul>
+            <li><a href="/perfil">Ir a Perfil (ruta de ejemplo)</a></li>
+            <li><a href="/productos">Ver Productos (ruta de ejemplo)</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Aplicación Spring Boot</p>
+    </footer>
+
+</body>
+</html>
