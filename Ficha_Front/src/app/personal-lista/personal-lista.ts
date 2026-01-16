@@ -1,9 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Personal } from '../personal';
 import { PersonalService } from '../personal-service';
-// IMPORTANTE: Si usas la nueva sintaxis @for, no necesitas CommonModule, 
-// pero si usaras el pipe async, sí necesitarías AsyncPipe aquí.
-import { JsonPipe } from '@angular/common'; 
 
 @Component({
   selector: 'app-personal-lista',
