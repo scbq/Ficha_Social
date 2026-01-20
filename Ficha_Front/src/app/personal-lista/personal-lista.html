@@ -32,6 +32,21 @@
                   La variable 'personal' está vacía. Registros encontrados: 0.
                 </td>
               </tr>
+
+              <div class="container mt-3">
+                <h3>Listado de empleados</h3>
+
+                @if (personal.length === 0) {
+                <p>No hay empleados para mostrar.</p>
+                } @else {
+                <ul>
+                  @for (p of personal; track p.id) {
+                  <li>{{ p.nombre }} {{ p.apellido }}</li>
+                  }
+                </ul>
+                }
+              </div>
+
               }
             </tbody>
           </table>

@@ -1,17 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { Personal } from '../personal';
 import { PersonalService } from '../personal-service';
 
 @Component({
   selector: 'app-personal-lista',
   standalone: true,
-  imports: [PersonalLista], // Añade JsonPipe solo para pruebas si quieres
+  imports: [CommonModule],
   templateUrl: './personal-lista.html',
-  styleUrl: './personal-lista.css',
+  styleUrls: ['./personal-lista.css'],
 })
 export class PersonalLista implements OnInit {
-  // Inicializa con un array vacío para evitar errores de "undefined" antes de que llegue la data
-  personal: Personal[] = []; 
+  personal: Personal[] = [];
+  usuarioLogueado: Personal | undefined;
 
   private personalServicio = inject(PersonalService);
 
@@ -22,14 +24,12 @@ export class PersonalLista implements OnInit {
   private obtenerPersonal(): void {
     this.personalServicio.obtenerPersonalLista().subscribe({
       next: (data) => {
-        // Asegúrate de que 'data' sea el array. 
-        // Si el console.log muestra algo como { personas: [...] }, usa data.personas
         this.personal = data;
-        console.log('DATA ASIGNADA:', this.personal);
+
+        this.usuarioLogueado = this.personal.find(u => u.id==1)!;
+        console.log('DATA ASIGNADA:', this.personal.find(u => u.id==1));
       },
-      error: (error) => {
-        console.error("Error al obtener datos", error);
-      },
+      error: (error) => console.error('Error al obtener datos', error),
     });
   }
 }
