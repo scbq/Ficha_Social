@@ -1,0 +1,146 @@
+/* personal-lista.scss */
+
+/* Fondo suave tipo panel */
+.dp-page {
+  background: #f7f8fb;
+}
+
+/* títulos */
+.dp-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #6c757d; /* bootstrap secondary */
+}
+
+/* sidebar header */
+.dp-sidebar__header {
+  background: #198754; /* bootstrap success */
+  color: #fff;
+  padding: 1rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* sidebar body */
+.dp-sidebar__body {
+  padding: 1rem;
+}
+
+.dp-menu-title {
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.dp-menu-group {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.dp-menu-parent {
+  width: 100%;
+  border: 0;
+  background: #e9f7ef; /* success tint */
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #146c43;
+}
+
+.dp-menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #495057;
+  border-top: 1px solid #f1f3f5;
+  background: #fff;
+}
+
+.dp-menu-item.active {
+  font-weight: 700;
+  box-shadow: inset 0.25rem 0 0 #dc3545; /* bootstrap danger */
+}
+
+/* cards */
+.dp-card {
+  border-radius: 1rem;
+}
+
+/* Foto */
+.dp-photo-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ffc107; /* bootstrap warning */
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.dp-photo {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+
+/* Grid de datos */
+.dp-grid {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.dp-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.dp-label {
+  font-weight: 700;
+  color: #6c757d;
+}
+
+.dp-value {
+  color: #212529;
+  font-weight: 500;
+}
+
+.dp-sep {
+  height: 0.5rem;
+}
+
+/* Pills (usa look bootstrap) */
+.dp-pill {
+  background: #0d6efd; /* primary */
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  width: 100%;
+}
+
+/* selects */
+.dp-select .form-select {
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+/* switch */
+.dp-switch .form-check-input {
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .dp-row {
+    grid-template-columns: 1fr;
+  }
+}

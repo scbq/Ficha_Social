@@ -1,57 +1,409 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow">
-        <div class="card-header bg-primary text-white text-center">
-          <p></p>
-          <h4>Ficha Social Institucional</h4>
-          <p>vesión dark</p>
-        </div>
-        <div class="card-body">
-          <div class="mb-3">
-            <h4>Datos Personales</h4>
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Bienestar Social</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <style>
+      /* CONFIGURACIÓN GLOBAL */
+      body {
+        background-color: #f8f9fa !important;
+        font-family: sans-serif;
+        color: #6c757d;
+        font-size: 0.85rem;
+      }
+      .card-custom {
+        background: white;
+        border: 1px solid #c8d1e0;
+        border-radius: 0;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .section-title {
+        color: #8a94a6;
+        font-weight: bold;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+      }
+
+      /* ESTILO DATOS PERSONALES */
+      .avatar-circle {
+        width: 130px;
+        height: 130px;
+        background-color: #ffff00;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .avatar-circle img {
+        width: 95%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .label-bold {
+        font-weight: bold;
+        color: #555;
+      }
+
+      /* ESTILO CABECERAS AZULES */
+      .header-blue {
+        background-color: #5d6db1;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 6px 6px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .header-blue.rounded-full {
+        border-radius: 8px;
+        margin-bottom: 5px;
+      }
+
+      /* SELECTS PERSONALIZADOS (Efecto doble flecha verde) */
+      .custom-select-box {
+        border: 1px solid #5d6db1;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        padding: 6px;
+        position: relative;
+        background: white;
+        text-align: center;
+        color: #5d6db1;
+      }
+      .custom-select-box::after {
+        content: '︾';
+        color: #61bd6d;
+        position: absolute;
+        right: 10px;
+        font-weight: bold;
+      }
+
+      /* TABLAS */
+      .table-blue thead {
+        background-color: #5d6db1;
+        color: white;
+        font-weight: normal;
+      }
+      .table-blue th {
+        font-weight: 400;
+        font-size: 0.75rem;
+        border: 1px solid #7c89c4;
+        vertical-align: middle;
+      }
+      .text-precargado {
+        color: #28a745 !important;
+        font-weight: 500;
+      } /* Verde */
+      .text-usuario {
+        color: #d97706 !important;
+        font-weight: 500;
+      } /* Naranja */
+
+      /* SELECTS DENTRO DE TABLAS */
+      .table-select {
+        border: 1px solid #5d6db1;
+        border-radius: 4px;
+        padding: 1px 15px 1px 5px;
+        color: #5d6db1;
+        font-size: 0.75rem;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        min-width: 80px;
+      }
+      .table-select::after {
+        content: '︾';
+        color: #61bd6d;
+        position: absolute;
+        right: 3px;
+        font-size: 0.6rem;
+      }
+
+      /* ICONOS ACCIONES */
+      .btn-edit {
+        background: #f4a261;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-size: 0.7rem;
+      }
+      .icon-add {
+        color: #eb5e55;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .icon-del {
+        color: #f4a261;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* SWITCHES VERDES */
+      .form-check-input:checked {
+        background-color: #61bd6d;
+        border-color: #61bd6d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-4">
+      <div class="card-custom">
+        <h6 class="section-title">DATOS PERSONALES</h6>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center border-end">
+            <div class="avatar-circle mb-2">
+              <img src="https://via.placeholder.com/150" alt="Avatar" />
+            </div>
           </div>
-          <table class="table table-striped table-hover align-middle">
-            <thead class="table-dark">
+          <div class="col-md-9 ps-4">
+            <div class="row">
+              <div class="col-md-6">
+                <p><span class="label-bold">Nombre:</span> Álvaro Riquelme</p>
+                <p><span class="label-bold">Rut:</span> 13.093.199-5</p>
+                <p><span class="label-bold">Sexo:</span> Masculino</p>
+                <p><span class="label-bold">F. Nac.:</span> 17/04/1976</p>
+              </div>
+              <div class="col-md-6">
+                <p><span class="label-bold">Estado Civil:</span> Casado</p>
+                <p><span class="label-bold">Sist. Salud:</span> SISALU</p>
+                <p><span class="label-bold">Domicilio:</span> Av. Larraín 555</p>
+                <p><span class="label-bold">Comuna:</span> La Reina (RM)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- --- DATOS COMPLEMENTARIOS --->
+      <div class="card-custom">
+        <h6 class="section-title">DATOS COMPLEMENTARIOS</h6>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="header-blue standalone">
+              <span>Pueblo Originario</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+                <small class="ms-1">Si/No</small>
+              </div>
+            </div>
+
+            <div class="header-blue standalone">
+              <span>Enfermedad Base</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+                <small class="ms-1">Si/No</small>
+              </div>
+            </div>
+
+            <div class="header-blue standalone">
+              <span>Cursa Estudios Particulares</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+                <small class="ms-1">Si/No</small>
+              </div>
+            </div>
+
+            <div class="header-blue standalone">
+              <span>Discapacidad</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+                <small class="ms-1">Si/No</small>
+              </div>
+            </div>
+
+            <div class="header-blue standalone">
+              <span>Paga Pensión de Alimentos</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+                <small class="ms-1">Si/No</small>
+              </div>
+            </div>
+          </div>
+          <!--DROOPDOWN-->
+          <div class="col-md-6">
+            <div class="header-blue">Seguro Complementario Salud</div>
+            <select class="form-select form-select-custom">
+              <option>Seleccione</option>
+            </select>
+
+            <div class="header-blue">Nivel Educacional</div>
+            <select class="form-select form-select-custom">
+              <option>Seleccione</option>
+            </select>
+
+            <div class="header-blue">Pago en Educación</div>
+            <select class="form-select form-select-custom">
+              <option>Seleccione</option>
+            </select>
+
+            <div class="header-blue">Estado Económico del Domicilio</div>
+            <select class="form-select form-select-custom">
+              <option>Seleccione</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-custom">
+        <h6 class="section-title">GRUPO FAMILIAR</h6>
+        <div class="table-responsive">
+          <table class="table table-bordered table-blue text-center align-middle">
+            <thead>
               <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apelido</th>
+                <th>Selecciona</th>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Parentesco</th>
+                <th>Carga</th>
+                <th>Sist. Salud</th>
+                <th>Vive en Domicilio</th>
+                <th>Estado Civil</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              @for (persona of personal; track persona.id) {
               <tr>
-                <th scope="row">{{ persona.id }}</th>
-                <td>{{ persona.nombre }}</td>
-                <td>{{ persona.apellido }}</td>
-              </tr>
-              } @empty {
-              <tr>
-                <td colspan="3" class="text-center text-danger">
-                  La variable 'personal' está vacía. Registros encontrados: 0.
+                <td><input type="checkbox" class="form-check-input border-danger" /></td>
+                <td class="text-precargado">13********</td>
+                <td class="text-precargado">Cami*****</td>
+                <td class="text-precargado">Hijo</td>
+                <td class="text-precargado">SI</td>
+                <td class="text-precargado">Capredena</td>
+                <td class="text-usuario">SI</td>
+                <td class="text-usuario">Soltero</td>
+                <td>
+                  <button class="btn-edit"><i class="bi bi-pencil"></i></button>
                 </td>
               </tr>
-
-              <div class="container mt-3">
-                <h3>Listado de empleados</h3>
-
-                @if (personal.length === 0) {
-                <p>No hay empleados para mostrar.</p>
-                } @else {
-                <ul>
-                  @for (p of personal; track p.id) {
-                  <li>{{ p.nombre }} {{ p.apellido }}</li>
-                  }
-                </ul>
-                }
-              </div>
-
-              }
             </tbody>
           </table>
         </div>
+
+        <div class="mt-4">
+          <p class="mb-2">
+            <strong>VIVIENDA GRUPO FAMILIAR:</strong> Av. Larraín 555, La Reina, RM
+          </p>
+          <div class="row g-2">
+            <div class="col-md-3">
+              <div class="header-blue">N° HABITANTES</div>
+              <div class="custom-select-box">Seleccione</div>
+            </div>
+            <div class="col-md-3">
+              <div class="header-blue">N° BAÑOS</div>
+              <div class="custom-select-box">Seleccione</div>
+            </div>
+            <div class="col-md-3">
+              <div class="header-blue">N° HABITACIONES</div>
+              <div class="custom-select-box">Seleccione</div>
+            </div>
+            <div class="col-md-3">
+              <div class="header-blue">MT2 CONSTRUIDOS</div>
+              <div class="custom-select-box">Seleccione</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-custom">
+        <h6 class="section-title">DECLARACIÓN DE PATRIMONIO</h6>
+        <div class="row">
+          <div class="col-md-4 pe-4 border-end">
+            <p class="label-bold">INGRESOS ANUALES</p>
+            <div class="header-blue">Ingreso Líquido</div>
+            <div class="custom-select-box text-precargado">***************</div>
+            <div class="header-blue">Ingreso Complementario</div>
+            <div class="custom-select-box">Seleccione</div>
+            <div class="header-blue rounded-full mt-3">
+              <span>Participa en Empresas</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" checked />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 ps-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="label-bold mb-0">BIENES MUEBLES</p>
+              <div>
+                <i class="bi bi-plus-circle-fill icon-add"></i>
+                <i class="bi bi-trash-fill icon-del"></i>
+              </div>
+            </div>
+            <table class="table table-sm table-borderless text-center mt-2 border">
+              <thead class="border-bottom text-primary">
+                <tr>
+                  <th>Selección</th>
+                  <th>Tipo</th>
+                  <th>Comuna</th>
+                  <th>Pagada</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="form-check-input border-danger" /></td>
+                  <td><div class="table-select">Casa</div></td>
+                  <td><div class="table-select">Buin</div></td>
+                  <td><div class="table-select">No</div></td>
+                  <td>
+                    <button class="btn-edit"><i class="bi bi-pencil"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <p class="label-bold mb-0">VEHÍCULOS</p>
+              <div>
+                <i class="bi bi-plus-circle-fill icon-add"></i>
+                <i class="bi bi-trash-fill icon-del"></i>
+              </div>
+            </div>
+            <table class="table table-sm table-borderless text-center mt-2 border">
+              <thead class="border-bottom text-primary">
+                <tr>
+                  <th>Selección</th>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Pagada</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="form-check-input border-danger" /></td>
+                  <td><div class="table-select">Mazda</div></td>
+                  <td><div class="table-select">3</div></td>
+                  <td><div class="table-select">No</div></td>
+                  <td>
+                    <button class="btn-edit"><i class="bi bi-pencil"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </body>
+</html>

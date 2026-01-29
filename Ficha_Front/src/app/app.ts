@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { PersonalLista } from './personal-lista/personal-lista';
- 
+import { DatosPersonalesComponent } from './personal-lista/personal-lista';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PersonalLista],
-  template: `<app-personal-lista />`,
+  imports: [DatosPersonalesComponent],
+  template: `<app-datos-personales></app-datos-personales>`,
   styleUrl: './app.css',
 })
 export class App {}
