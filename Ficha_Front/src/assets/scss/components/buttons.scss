@@ -1,0 +1,135 @@
+.btn-mini {
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.6rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    font-family: 'Roboto-Bold', sans-serif;
+    /* color:#fff !important; */
+}
+
+.btn-portal {
+    font-family: 'RobotoCondensed-Light', sans-serif;
+    font-size: 12px;
+    border: none;
+    padding: 5px 15px;
+    color: #fff;
+    width: 100px;
+    /*align-items:flex-end;*/
+    justify-content: center;
+}
+
+.btn-generico {
+    background-color: #ECEFF1;
+    border-radius: 3px;
+    border: #78909C;
+    color: #78909C;
+    border: 1px solid #78909C;
+    font-size: 13px;
+}
+
+
+
+.btn {
+    font-size: 13px;
+}
+
+
+.btn-mini {
+    font-size: 9px !important;
+    letter-spacing: .03rem;
+    text-transform: uppercase;
+    font-family: 'Roboto-Regular', sans-serif;
+}
+
+.btn-refresh {
+    display: inline-block;
+    padding: 0px 10px;
+    height: 33px;
+    background: #b0babf !important;
+}
+
+.btn-refresh:hover {
+    background: #92a0a7 !important;
+}
+
+.no-btn {
+    background: transparent;
+    border: none;
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.no-btn:focus {
+    outline: none;
+}
+
+
+.btn-card {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+}
+
+/*Button States*/
+
+.btn-success:disabled{
+    color: #fff;
+    background-color: #9daab1;
+    border-color: #9daab1;
+}
+
+/* .btn-success:disabled{
+    background:rgb(216, 208, 208);    
+} */
+
+.btn-primary{
+   background:#E6E9F8;
+   color:#7C8AD9; 
+}
+
+button:disabled, button[disabled]{
+    /* border: 1px solid #999999; */
+    background-color: #ccc;
+    color: #fff;    
+}
+
+.btn-icon{
+    background: transparent;
+}
+.btn-icon:hover{
+    background: #e6e6e6 !important;
+}
+
+.btn-icon, .btn-icon:hover{
+    cursor: pointer;
+    border-radius: 50px;
+    border-radius: 50px;
+    height: 2rem;
+    width: 2rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* .btn-icon:hover{
+    border-radius: 50px;
+    height: 2rem;
+    width: 2rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+} */
+
+

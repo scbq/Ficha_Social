@@ -1,0 +1,148 @@
+<div class="card p-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <h6 class="color-title">Datos Firmante de Resolución</h6>
+      <label class="mb-0">
+        Buscar y seleccionar con el mouse cuando aparezca la pestaña bajo el
+        buscador
+      </label>
+      <!-- <div class="container-search mb-3">
+                                        <input 
+                                        [class.is-valid]="this.formResolucion.get('firmante')?.valid"
+                                        [class.is-invalid]="this.formResolucion.get('firmante')?.invalid && this.formResolucion.get('firmante')?.touched"  formControlName="firmante"
+                                        id="notif_funcionario2" name="notif_funcionario2" class="form-control" list="id-comandanteUnidad" (change)="seleccionarUsuarioBoton($event)" 
+                                        (keyup)="buscarFuncionarios()" [(ngModel)]="campoBuscar" placeholder="Ingrese nombre / RUN de Jefatura para firmar notificación..."  autocomplete="off" />
+                    
+                                        <datalist id="id-comandanteUnidad">
+                                            <option *ngFor="let com of funcionarios" [ngValue]="com"  >
+                                                <ng-container  hidden *ngIf="com.grado == 'SUBOFICIAL MAYOR'; else nodata">{{
+                                                    com.rut.split("-")[0] }} -{{ com.nombre.split(")")[1] }}</ng-container>
+                                                <ng-template  #nodata>{{ com.rut.split("-")[0] }} - {{com.nombre}}</ng-template>
+                                            </option>
+                                        </datalist>
+                                        
+                                        <br />
+                                        <span *ngIf="sinResultados" class="text-danger animated fadeIn mt-1"><span class="strong">Sin
+                                                resultados</span></span>
+                                    </div> -->
+
+      <div class="container-search mb-3">
+        <input
+          formControlName="firmante"
+          id="notif_funcionario2"
+          name="notif_funcionario2"
+          class="form-control"
+          list="id-comandanteUnidad"
+          placeholder="Ingrese nombre / RUN de Jefatura para firmar notificación..."
+          autocomplete="off"
+        />
+
+        <datalist id="id-comandanteUnidad">
+          <option>
+            <ng-container hidden> </ng-container>
+            <ng-template #nodata></ng-template>
+          </option>
+        </datalist>
+
+        <br />
+        <span class="text-danger animated fadeIn mt-1"
+          ><span class="strong">Sin resultados</span></span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- <div *ngIf="firmante_modal.nombres!='' " class="col-lg-12">
+                                    <div class="me-2 ">
+                                        <div class="alert alert-info p-2 ps-4 pe-4 no-border bg-lightblue">
+                                            <h6 class="color-title m-0 mb-2 ">Firmante seleccionado</h6>
+                                            <p class="mb-0">
+                                                <i class="fas fa-user-circle me-2"></i> {{firmante_modal.gradoLargo}}
+                                                {{firmante_modal.escalafon}}
+                                                {{firmante_modal.nombres}}
+                                            </p>
+                                        </div>
+        
+                                    </div>
+                                </div> -->
+
+    <div class="col-lg-12">
+      <div class="me-2">
+        <div class="alert alert-info ps-4 pe-4 no-border bg-lightblue">
+          <h6 class="color-title m-0 mb-2">Firmante seleccionado</h6>
+          <p class="mb-0">
+            <i class="fas fa-user-circle me-2"></i> firmante modal grado largo
+            firmante modal escalafon firmante modal nombres
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h6 class="color-title">Tipo de firmante</h6>
+      <!-- <div class="mb-3 ">
+                                        <select 
+                                        [class.is-valid]="this.formResolucion.get('tipoFirmante')?.valid"
+                                        [class.is-invalid]="this.formResolucion.get('tipoFirmante')?.invalid && this.formResolucion.get('tipoFirmante')?.touched"  formControlName="tipoFirmante"
+                                        class="form-control form-control-sm " (change)="tipoFirmante($event)">
+                                            <ng-container>
+                                                <option value='0' selected disabled >Seleccione el tipo de firmante</option>
+                                                <option value="titular">Titular</option>
+                                                <option value="subrogante">Subrogante</option>
+                                                <option value="suplente">Suplente</option>
+                                            </ng-container>
+                                        </select>
+                                    </div> -->
+
+      <div class="mb-3">
+        <select
+          formControlName="tipoFirmante"
+          class="form-control form-control-sm"
+        >
+          <ng-container>
+            <option value="0" selected disabled>
+              Seleccione el tipo de firmante
+            </option>
+            <option value="titular">Titular</option>
+            <option value="subrogante">Subrogante</option>
+            <option value="suplente">Suplente</option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="d-flex">
+        <h6 class="color-title me-2">Cargo del Pie de Firma</h6>
+        <!-- <div class="wrapper" *ngIf="this.tipoFirma=='subrogante' || this.tipoFirma=='suplente'">
+                                            <i class="fas fa-info-circle" style="font-size: 1.2em"></i>
+                                            <div class="tooltip">
+                                                el firmante seleccionado como subrogante o suplente requiere que escriba el cargo en caso que corresponda
+                                            </div>
+                                        </div> -->
+
+        <div class="wrapper">
+          <i class="fas fa-info-circle" style="font-size: 1.2em"></i>
+          <div class="tooltip">
+            Verifique que el cargo de suplente y subrogante sean los correctos,
+            de lo contrario modifique el el cargo del pie de firma.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- <input
+                                        [class.is-valid]="this.formResolucion.get('cargoFirmante')?.valid"
+                                        [class.is-invalid]="this.formResolucion.get('cargoFirmante')?.invalid && this.formResolucion.get('cargoFirmante')?.touched"  formControlName="cargoFirmante"
+                                         type="text " class="form-control form-control-sm " /> -->
+
+        <input
+          formControlName="cargoFirmante"
+          type="text "
+          class="form-control form-control-sm"
+        />
+      </div>
+    </div>
+  </div>
+</div>

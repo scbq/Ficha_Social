@@ -1,0 +1,28 @@
+/*Correspondiente a los que es un componente nav en Bootstrap*/
+
+.nav-flex-fach button.nav-link{
+background:#e2ebff;
+border:none;
+border-bottom:1px solid #d5e0f8;
+border-radius: 0;
+transition: .3s;
+color:#5C6BC0;
+}
+
+.nav-flex-fach button.nav-link:hover{
+    background:#f0eeee;
+    border:none;
+    border-bottom:1px solid #d5e0f8;
+    border-radius: 0;
+    transition: .3s;
+    color: #5C6BC0;
+    }
+
+.nav-flex-fach button.nav-link.active{
+background:#5c6bc0;
+border:none;
+border-radius: 0;
+color:#FFF;
+border-bottom:1px solid #4d5aa5;
+
+}

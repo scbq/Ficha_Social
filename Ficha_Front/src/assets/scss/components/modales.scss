@@ -1,0 +1,213 @@
+/*** Este CSS contiene las definiciones de todos los modales de Portal Comando de Personal ***/
+
+.modal-catastro {}
+
+.modal-catastro .modal-header {
+    font-family: 'Exo-Bold', sans-serif;
+    font-size: 24px;
+    background: #fafbfd;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.modal-catastro .modal-body span {
+    font-family: 'Exo-Medium', sans-serif;
+}
+
+.modal-catastro .modal-body {
+    font-family: 'Roboto-Regular', sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #fafbfd;
+}
+
+.modal-catastro .modal-body.info-asociada {
+    font-family: 'Roboto-Regular', sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #f8fafd;
+}
+
+.modal-catastro .modal-body h6 {
+    font-size: 15px;
+}
+
+.modal-catastro .modal-body i {
+    font-size: 18px;
+}
+
+.modal-catastro .modal-header .modal-title {
+    font-size: 24px;
+    font-family: 'Exo-Bold', sans-serif;
+}
+
+.bt-grey {
+    border-top: 1px solid #eff0f2;
+}
+
+
+/*MODAL GENERICO FIRMANTES*/
+
+.firmante {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eff0f2;
+}
+
+.firmante:last-child {
+    border-bottom: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+
+/*schedule library*/
+
+.e-schedule-dialog {
+    width: 45vw !important;
+}
+
+/*estilo para modales*/
+.modal-info p{
+    font-family: 'Roboto-Regular', sans-serif;
+    line-height: 1.45;
+    font-size: .8rem;
+    color: #607D8B;
+}
+
+.modal-info p span{
+    font-family: 'Exo-SemiBold', sans-serif;
+    color:#5663a9;
+    font-size: .85rem;
+}
+
+
+
+/*MODALES*/
+
+
+/*ADVERTENCIA*/
+
+.modal-advertencia .modal-header {
+    border-top: 5px solid #e44a59;
+}
+
+.modal-advertencia .modal-header,
+.modal-advertencia .modal-body {
+    /* background-color:#f5a9a9; */
+    /* padding-bottom:20px; */
+    color: #e44a59;
+    background: #F9F9FB;
+}
+
+.modal-advertencia p {
+    font-size: .85rem;
+    color: #607D8B;
+}
+
+.modal-advertencia h3 {
+    margin-top: 0;
+}
+
+
+/*MODAL INFO GENERAL + MODAL UPDATE*/
+
+
+/**/
+
+.modal-info .modal-header,
+.modal-update .modal-header {
+    border-top: 5px solid #5C6BC0;
+}
+
+.modal-info .modal-header,
+.modal-update .modal-header
+ {
+    color: #5C6BC0;
+    background: #F9F9FB;
+}
+
+.modal-info .modal-body,
+.modal-update .modal-body {
+    color: #5C6BC0;
+    background: #F9F9FB;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.modal-update p {
+    font-size: .85rem;
+    color: #607D8B;
+}
+
+.modal-info h3,
+.modal-update h3 {
+    margin-top: 0;
+}
+
+.icon-info {
+    color: rgba(92, 107, 192, 0.5);
+}
+
+.modal-update .modal-body {
+    padding: 30px 30px;
+}
+
+.modal-update form label {
+    margin-bottom: 0;
+    font-size: 0.75rem;
+}
+
+.modal-update form input:focus,
+.modal-update form select:focus {
+    box-shadow: 0 0 0 0.1rem rgba(224, 229, 255, .78);
+    background-color: rgba(255, 215, 64, .15) !important;
+    border-color: transparent;
+}
+
+
+
+
+/*MODAL INFO GENERAL*/
+
+.modal-info .modal-header {
+    border-top: 5px solid #5C6BC0;
+}
+
+.modal-info .modal-header,
+.modal-info .modal-body {
+    /* background-color:#f5a9a9; */
+    /* padding-bottom:20px; */
+    color: #5C6BC0;
+    background: #F9F9FB;
+}
+
+.modal-info .modal-body label{
+    color:#607D8B;
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: .8rem;
+    display: inline;
+}
+
+
+.modal-info h3 {
+    margin-top: 0;
+}
+
+/*Iframes integrados en un modal*/
+iframe.modal-doc-preview {
+    height: 580px;
+}
+
+/*Botón Cerrar Modal*/
+
+.modal-header button.close {
+    border: 0;
+    font-size: 30px;
+    background: none;
+    color: #607D8B;
+}

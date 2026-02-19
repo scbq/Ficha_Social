@@ -1,0 +1,15 @@
+<!--
+BtnAction: para 
+-->
+
+<button
+  type="button"
+  class="btn"
+  [ngClass]="'btn-' + btnType + ' ' + 'btn-' + btnSize"
+  [attr.data-bs-toggle]="toggle"
+  [attr.data-bs-target]="target"
+>
+  {{ btnText }}
+</button>
+
+<!--[attr.data-bs-toggle]="toggle" [attr.data-bs-target]="target"-->

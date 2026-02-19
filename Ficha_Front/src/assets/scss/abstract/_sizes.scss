@@ -1,0 +1,25 @@
+/*
+em: unidad de medida relativa al elemento padre
+rem: unidad de medida relativa al elemento raíz - ideal para responsive
+pt: unidad de medida en puntos
+px: unidad de medida en pixeles
+*/
+
+
+/*titles-sizes*/
+$font-xs: .7rem;
+$font-sm: .85rem;
+$font-reg: 1rem;
+$font-md: 1.3rem;
+$font-lg: 1.4rem;
+$font-xl: 1.6rem;
+$font-xxl: 1.85rem;
+
+
+.font-xs{font-size: $font-xs;}
+.font-sm{font-size: $font-sm;}
+.font-reg{font-size: $font-reg;}
+.font-md{ font-size: $font-md;}
+.font-lg{ font-size: $font-lg;}
+.font-xl{ font-size: $font-xl;}
+.font-xxl{ font-size: $font-xxl;}

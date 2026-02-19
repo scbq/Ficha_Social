@@ -1,0 +1,625 @@
+/*** Este CSS contiene las definiciones de todas las tarjetas de Portal Comando de Personal ***/
+
+/*INDEX*/
+/*
+1.MI OFICINA
+1.1 TABLERO DE GESTION - TOTALIZADORES
+*/
+
+.card{
+    display: block;
+}
+
+.card h6{
+    margin:0 0 10px 0;
+    font-size: 13px;}
+
+/**/
+.card-fach{
+    position: relative;
+    /* display: flex; */
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    border: none; /*1px solid rgba(0, 0, 0, 0.125)*/
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    transition: .3s;
+}
+
+
+/*TABLERO DE GESTION - TOTALIZADORES*/
+.card-portal{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+}
+
+/*CARD TOTALIZADOR*/
+.card-totalizador{
+    padding:10px 20px;}
+
+.card-totalizador i{
+    position: absolute;
+    top:15px;
+    right:15px;
+}
+
+
+.ct-body{
+    display: flex;
+    align-items: center;
+}
+
+
+.ct-body div:nth-child(1){
+    font-size:45px;
+    font-family: 'Exo-Bold', sans-serif;
+    margin-right:15px;
+}
+
+.ct-body div:nth-child(2){
+    font-family: 'Exo-Bold', sans-serif;
+    font-size: 16px;
+    line-height: 1.2rem;
+}
+
+/*Tarjeta con varios datos lineales*/
+
+/*Dato Principal*/
+.ct-body.ct-datoprincipal div:nth-child(1){
+    font-size: 30px;
+}
+
+.ct-body.ct-datoprincipal div:nth-child(2){
+    font-size: 14px;
+    line-height:1.15;
+}
+
+/*Datos Secundarios*/
+.ct-body.ct-datolineal:nth-child(1) {
+    /* background:yellowgreen; */
+    font-size: 13px;
+}
+
+.ct-body.ct-datolineal div:nth-child(1) {
+    /* background:yellowgreen; */
+    font-size: 13px;
+}
+
+
+
+/*MI FACH*/
+/*Card-subproceso*/
+.card-subproceso{
+    border-radius:10px;
+    border:none;
+    padding:20px 20px 15px 20px;
+    height:270px;
+    color:#5663A9;
+    font-family: 'Exo-Medium', sans-serif;
+}
+
+.card-subproceso2{
+    border-radius:10px;
+    border:none;
+    padding:20px 20px 15px 20px;
+    color:#5663A9;
+    height: auto !important;
+    font-family: 'Exo-Medium', sans-serif;
+}
+
+.card-fach.card-subproceso{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-subproceso .sup-header{
+    display: flex;
+    justify-content: space-between;
+}
+.card-subproceso .sup-header i:first-child{
+    /* background:white; */
+    /* padding:10px; */
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+.card-subproceso .sup-header div:last-child i.icon-status{
+    position: absolute;   
+    top: 22px;
+    right: 20px;
+    font-size: 22px;
+}
+
+/* .card-subproceso .header{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.card-subproceso .header{
+    display: inline-block;
+    /* justify-content: space-between; */
+}
+
+.card-subproceso .header h4{
+    margin-bottom:0;
+}
+
+.card-subproceso .header p{
+    font-family: 'OpenSans-Regular', sans-serif;
+}
+
+.card-subproceso .header i:first-child{
+    background:white;
+    padding:10px;
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+/* .card-subproceso .header i:last-child{
+    padding:10px;
+    color:#F98585;
+    font-size: 15px;
+} */
+/* 
+.card-subproceso .header i::before{
+    font-size: 10px;} */
+
+.card-subproceso .body h3{
+    font-size: 1.25rem;
+    margin:0;
+    /* color:#5663A9; */
+}
+
+.card-subproceso .body h4{
+    font-size: 1rem;
+    margin:0;
+    /* color:#5663A9; */
+}
+
+.card-subproceso .body h5, .card-subproceso .footer h5{
+    font-size: .95rem;
+    margin:0;
+    /* color:#5663A9; */
+}
+
+.card-subproceso .body div{
+    font-family: 'Exo-Italic';
+    font-size: 13px;
+    /* color:#5663A9; */
+}
+
+.card-subproceso .body div i{
+    color:#F98585;
+}
+
+.card-subproceso .body div .desc-seguro h3{
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.card-subproceso .body div.text-right{
+    text-align:right;
+    font-family: 'Exo-Regular', sans-serif;
+    font-size: 15px;
+    line-height:1;
+}
+
+.card-subproceso .body div span{
+    font-family: 'Exo-Bold', sans-serif;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.card-subproceso .footer .no-btn{
+    background:transparent;
+    color:#5663A9;
+    font-family: 'Exo-Medium';
+    padding:5px 10px;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.card-subproceso .footer .no-btn:hover{
+    background:#dae0ff;
+    color:#3f4b8d;
+    transition: transform 0.5s ease-in-out;
+    padding:5px 10px;
+    border-radius:30px;
+    transition:0.3s;
+
+}
+
+.card-subproceso .footer .no-btn:hover i{
+    transform: translateX(1px);
+    transition: transform 0.5s ease-in-out;
+}
+
+/*CARD SUBPROCESO INACTIVA*/
+.card-subproceso.card-inactive{
+    background:#f6f9fd;
+    color:#acafc3;
+    border:none;
+}
+
+.card-subproceso.card-inactive .footer .no-btn, .card-subproceso.card-inactive .footer .no-btn:hover{
+    color:#acafc3;  
+}
+
+.card-subproceso .card-icon-alert{
+    position: absolute;
+    top:20px;
+    right:20px;
+    font-size: 40px;
+    color:#F98585; /*#FFE0C8*/
+}
+/* CLASE PARA ICONO CHECK */
+.card-subproceso .card-icon-success {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #3cc58c;
+}
+.card-subproceso .card-icon-pending {
+    position: absolute;   
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #ffb04d;  
+}
+
+/*colores iconos */
+
+.icon-success{    color:#3cc58c;}
+.icon-pending{ color: #ffb04d}
+
+
+
+
+
+
+.card-inactive{
+    background:rgb(243, 243, 243);
+    border:1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* .card-inactive h6{color:#96a3ab;} */
+
+.mini-alert{
+    padding:5px 8px;
+    border-radius:3px;
+}
+
+.icon-circle{
+    border-radius:30px;
+}
+
+/*CARD RESUMEN*/
+
+.card-resumen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: .5rem 1rem;
+    transition: .3s;
+}
+
+.card-resumen .card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 15px;
+}
+
+.card-resumen .date-start-end {
+    padding: 0px 0px 8px 0px;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.card-resumen .date-start-end div {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.card-resumen .date-start-end div ul li {
+    list-style: initial;
+    margin-left: 20px;
+}
+
+.card-resumen .card-body div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.card-resumen .date-start-end div span.label,
+.card-resumen .card-body div span.label,
+.card-resumen .card-body .nota span.label {
+    font-size: 9px;
+    color: rgb(121, 122, 142);
+    text-transform: uppercase;
+    font-family: 'Lato-Black', sans-serif;
+    margin-bottom: 5px;
+}
+
+.card-resumen .card-body div span.name {
+    font-family: 'Exo-SemiBold', sans-serif;
+    color: #7081a0;
+}
+
+.card-resumen .card-body div.descripcion {
+    color: #9e9eb5;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.card-resumen .card-body div.descripcion div {
+    line-height: 1.5;
+}
+
+.card-resumen .card-body .nota {
+    font-size: 2.2rem;
+    font-weight: bolder;
+    background: rgba(244, 244, 244, 0.592);
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 1;
+    height: 100px;
+    text-align: center;
+    margin-right: 20px;
+    font-family: 'Exo-SemiBold', sans-serif;
+    justify-content: center;
+    height: 65px;
+}
+
+.card-resumen .card-body .porcentaje::after {
+    content: '%';
+    display: contents;
+    /* float:right; */
+    font-size: 12px;
+}
+
+.card-footer.documento {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(244, 244, 244, 0.592);
+}
+
+.card-resumen .card-body.calificacion {
+    flex-direction: row;
+    /* margin-top:20px; */
+}
+
+.card-resumen:hover {
+    -webkit-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.16);
+    transition: .3s;
+}
+
+.card-resumen .card-body div.date-start-end {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-resumen .card-body div.date-start-end div {
+    padding: 0px 10px;
+}
+
+.educacional .card-resumen .nota {
+    background: #e6f7ff;
+}
+
+.rrhh .card-resumen .nota {
+    background: #fff1e6;
+}
+
+.educacional .card-resumen .nota {
+    background: #e6f7ff;
+}
+
+.educacional .card-resumen .nota {
+    background: #e6f7ff;
+}
+
+.educacional .card-resumen .nota {
+    background: #e6f7ff;
+}
+
+
+
+/*CARD FICHA PERSONAL*/
+
+.card-ficha-personal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: .5rem 1rem;
+    transition: .3s;
+}
+
+.card-ficha-personal .card-header {
+    font-family: 'Exo-SemiBold', sans-serif;
+    color: #7081a0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom:1px solid rgba(0, 0, 0, 0.125); */
+    /* margin-bottom: 15px; */
+    line-height: 1.5;
+}
+
+.card-ficha-personal .card-header h6.title-card {
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.card-ficha-personal .card-body h6.subtitle-card {
+    font-size: 13px;
+    font-family: 'Exo-Medium', sans-serif;
+    margin-top: 0;
+}
+
+
+.maincard-info-ficha {
+    background: #F9FAFF;
+    border: 1px solid #D5D8F3;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+    border-left-color: #D5D8F3;
+}
+
+.maincard-info-ficha img.clip-circle {
+    clip-path: circle(59px at 60px 60px);
+    position: relative;
+    bottom: -6px;
+}
+
+
+/*TAREAS*/
+
+.card-tasks {
+    border-radius: 0;
+    margin-bottom: 40px;
+    position: relative;
+    height: 125px;
+    display: flex;
+    /* justify-content:space-between; */
+    /*align-items: stretch;*/
+    transition: 0.5s;
+    height: 170px;
+    border: 1px solid #cfd8dc !important;
+    border-radius: 3px;
+    background: #f9f9f9;
+}
+
+.card-tasks div {
+    color: #455A64;
+    font-size: 30px;
+    font-family: 'Exo-SemiBold';
+}
+
+.card-tasks div sub {
+    font-size: 15px;
+    position: relative;
+    top: 0px;
+}
+
+.card-tasks i.i-ctasks {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.8rem;
+    color: #cfd8dc;
+}
+
+.card-tasks button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #ccc !important;
+}
+
+.card-tasks a.btn-tasks {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+    background: #cfd8dc !important;
+    transition: 0.3s;
+    color: #455a64 !important;
+}
+
+.card-tasks a.btn-tasks:hover {
+    transition: 0.3s;
+    background: #90a4ae !important;
+    color: #fff !important;
+}
+
+.card-tasks a:hover {
+    text-decoration: under;
+}
+
+.card-tasks h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/*SIMPLE CARD*/
+
+.simple-card {
+    /*height:130px;*/
+    border: 1px solid transparent;
+    width: 100%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+.simple-card h6 {
+    margin: 0
+}
+
+.simple-card div {
+    margin-top: 0.5rem;
+}
+
+.simple-card {
+    padding: 20px;
+    /*text-align:center;*/
+    display: flex;
+}
+
+.simple-card p {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
+
+
+/*Timeline Card*/
+.tl-card {
+    border-radius:3px;
+    padding: 15px;
+    color:#54798C;
+  }
+  
+  .tl-card p strong{
+    font-family: 'FiraSans-Medium', sans-serif !important;
+    padding-top:10px;
+  }
+  
+  .tl-card p{
+    font-family: 'FiraSans-Regular', sans-serif;
+  }

@@ -1,0 +1,176 @@
+/*INDEX FONTS PORTAL
+
+1. EXO
+2. LATO
+3. ROBOTO
+4. FIRA SANS
+
+
+*/
+
+
+/*FONTS*/
+/*1.EXO FONT*/
+@font-face{
+    font-family: "Exo-Light";
+    src: url('fonts/exo/Exo-Light.ttf') format('truetype'),
+        url('fonts/exo/Exo-Light.woff') format('woff'),
+        url('fonts/exo/Exo-Light.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-LightItalic";
+    src: url('fonts/exo/Exo-LightItalic.ttf') format('truetype'),
+        url('fonts/exo/Exo-LightItalic.woff') format('woff'),
+        url('fonts/exo/Exo-LightItalic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-Regular";
+    src: url('fonts/exo/Exo-Regular.ttf') format('truetype'),
+        url('fonts/exo/Exo-Regular.woff') format('woff'),
+        url('fonts/exo/Exo-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-Italic";
+    src: url('fonts/exo/Exo-Italic.ttf') format('truetype'),
+        url('fonts/exo/Exo-Italic.woff') format('woff'),
+        url('fonts/exo/Exo-Italic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-Medium";
+    src: url('fonts/exo/Exo-Medium.ttf') format('truetype'),
+        url('fonts/exo/Exo-Medium.woff') format('woff'),
+        url('fonts/exo/Exo-Medium.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-SemiBold";
+    src: url('fonts/exo/Exo-SemiBold.ttf') format('truetype'),
+        url('fonts/exo/Exo-SemiBold.woff') format('woff'),
+        url('fonts/exo/Exo-SemiBold.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Exo-Bold";
+    src: url('fonts/exo/Exo-Bold.ttf') format('truetype'),
+        url('fonts/exo/Exo-Bold.woff') format('woff'),
+        url('fonts/exo/Exo-Bold.woff2') format('woff2');
+}
+
+
+/*2.LATO FONT*/
+
+@font-face{
+    font-family: "Lato-Regular";
+    src: url('fonts/lato/Lato-Regular.ttf') format('truetype'),
+        url('fonts/lato/Lato-Regular.woff') format('woff'),
+        url('fonts/lato/Lato-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Lato-Italic";
+    src: url('fonts/lato/Lato-Italic.ttf') format('truetype'),
+        url('fonts/lato/Lato-Italic.woff') format('woff'),
+        url('fonts/lato/Lato-Italic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Lato-Bold";
+    src: url('fonts/lato/Lato-Bold.ttf') format('truetype'),
+        url('fonts/lato/Lato-Bold.woff') format('woff'),
+        url('fonts/lato/Lato-Bold.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Lato-BoldItalic";
+    src: url('fonts/lato/Lato-BoldItalic.ttf') format('truetype'),
+        url('fonts/lato/Lato-BoldItalic.woff') format('woff'),
+        url('fonts/lato/Lato-BoldItalic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Lato-Black";
+    src: url('fonts/lato/Lato-Black.ttf') format('truetype'),
+        url('fonts/lato/Lato-Black.woff') format('woff'),
+        url('fonts/lato/Lato-Black.woff2') format('woff2');
+}
+
+
+/*3.ROBOTO FONT*/ 
+
+@font-face{
+    font-family: "Roboto-Light";
+    src: url('fonts/roboto/Roboto-Light.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-Light.woff') format('woff'),
+        url('fonts/roboto/Roboto-Light.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Roboto-LightItalic";
+    src: url('fonts/roboto/Roboto-LightItalic.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-LightItalic.woff') format('woff'),
+        url('fonts/roboto/Roboto-LightItalic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Roboto-Regular";
+    src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-Regular.woff') format('woff'),
+        url('fonts/roboto/Roboto-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Roboto-Italic";
+    src: url('fonts/roboto/Roboto-Italic.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-Italic.woff') format('woff'),
+        url('fonts/roboto/Roboto-Italic.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "Roboto-Medium";
+    src: url('fonts/roboto/Roboto-Medium.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-Medium.woff') format('woff'),
+        url('fonts/roboto/Roboto-Medium.woff2') format('woff2');
+}
+
+
+@font-face{
+    font-family: "Roboto-Bold";
+    src: url('fonts/roboto/Roboto-Bold.ttf') format('truetype'),
+        url('fonts/roboto/Roboto-Bold.woff') format('woff'),
+        url('fonts/roboto/Roboto-Bold.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "RobotoCondensed-Regular";
+    src: url('fonts/roboto/RobotoCondensed-Regular.ttf') format('truetype'),
+        url('fonts/roboto/RobotoCondensed-Regular.woff') format('woff'),
+        url('fonts/roboto/RobotoCondensed-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "RobotoCondensed-Light";
+    src: url('fonts/roboto/RobotoCondensed-Light.ttf') format('truetype'),
+        url('fonts/roboto/RobotoCondensed-Light.woff') format('woff'),
+        url('fonts/roboto/RobotoCondensed-Light.woff2') format('woff2');
+}
+
+
+/*4.FIRA SANS FONT*/
+
+@font-face{
+    font-family: "FiraSans-Regular";
+    src: url('fonts/firasans/FiraSans-Regular.ttf') format('truetype'),
+        url('fonts/firasans/FiraSans-Regular.woff') format('woff'),
+        url('fonts/firasans/FiraSans-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: "FiraSans-Medium";
+    src: url('fonts/firasans/FiraSans-Medium.ttf') format('truetype'),
+        url('fonts/firasans/FiraSans-Medium.woff') format('woff'),
+        url('fonts/firasans/FiraSans-Medium.woff2') format('woff2');
+}

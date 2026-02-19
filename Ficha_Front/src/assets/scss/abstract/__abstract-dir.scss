@@ -1,0 +1,14 @@
+/*
+Este archivos es usado para contener todas las importaciones base.
+Los archivos dentro de esta carpeta pueden contener estilos globales usados en el proyecto.
+*/
+
+// @use "colors";
+// @use "fonts";
+// @use "typography";
+
+
+@use "./colors";
+@use "./fonts";
+@use "./sizes";
+@use "./icon.scss"

@@ -1,0 +1,62 @@
+<div class="wrapper-accordion pt-5">
+  <!-- Continuar con los items del timeline -->
+  <ul class="StepProgress">
+    <div class="StepProgress-item" [ngClass]="estado">
+      <h6 class="m-0">Solicitud Enviada</h6>
+      <ng-container>
+        <p>
+          <span
+            >Enviada: {{ fechaPostulacion | date : "dd/MM/yyyy HH:mm" }}</span
+          >
+        </p>
+      </ng-container>
+    </div>
+
+    <div
+      class="StepProgress-item"
+      [ngClass]="postulacion?.fechaAutorizacion ? 'is-done' : 'is-pending'"
+    >
+      <h5 class="m-0">Solicitud Firmada</h5>
+      <ng-container>
+        <p>
+          COMANDANTE UNIDAD <br />
+          {{ postulacion?.nombreAutorizador }}<br /><span>
+            Firmada el:
+            {{
+              postulacion?.fechaAutorizacion
+                ? (postulacion.fechaAutorizacion | date : "dd/MM/yyyy HH:mm")
+                : "Pendiente"
+            }}</span
+          >
+        </p>
+        <div *ngIf="motivo" class="motivo card pt-2 pb-2 pe-3 ps-3">
+          Observación de Firmante:<br />
+          {{ motivo }}
+        </div>
+      </ng-container>
+    </div>
+
+    <div
+      class="StepProgress-item"
+      [ngClass]="postulacion?.nombreRecepcion ? 'is-done' : 'is-pending'"
+    >
+      <h5 class="m-0">Solicitud Recepcionada</h5>
+      <ng-container>
+        <p>
+          RECURSOS HUMANOS<br />{{
+            postulacion?.nombreRecepcion
+              ? postulacion?.nombreRecepcion
+              : "No recepcionada"
+          }}<br /><span>
+            Recibida el:
+            {{
+              postulacion?.fechaRecepcion
+                ? (postulacion?.fechaRecepcion | date : "dd/MM/yyyy HH:mm")
+                : "Pendiente"
+            }}
+          </span>
+        </p>
+      </ng-container>
+    </div>
+  </ul>
+</div>

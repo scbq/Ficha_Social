@@ -1,0 +1,87 @@
+/*Globales de tipografía, títulos, párrafós, links*/
+
+
+
+a {
+    color: #607D8B; /*607D8B*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Exo-SemiBold', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin: 0.8rem 0 1.5rem 0;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin: 0.8rem 0 1.5rem 0;
+}
+
+h5 {
+    font-size: 1rem;
+    margin: 0.6rem 0;
+}
+
+h6 {
+    font-size: 0.9rem;
+    margin: 0.6rem 0;
+}
+
+h1 i {
+    top: -2px;
+    position: relative;
+}
+
+h3 i,
+h4 i,
+h5 i,
+h6 i {
+    margin-right: 5px;
+    top: -2px;
+    position: relative;
+}
+
+h3 i {
+    top: -1px;
+    position: relative;
+}
+
+
+/*p{padding:0.5rem 0 0.9rem 0;}*/
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    line-height:1.2;
+}
+
+p strong,
+strong {
+    font-family: 'Roboto-Medium', sans-serif !important;
+    font-weight: normal;
+}

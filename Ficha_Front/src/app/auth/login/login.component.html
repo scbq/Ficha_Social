@@ -1,0 +1,56 @@
+<div id="body-login">
+  <div id="login" class="card p-4">
+    <div class="logo-fach">
+      <div>
+        <h1 class="text-center mb-4">{{ nameProyect }}</h1>
+      </div>
+    </div>
+
+    <div class="credenciales">
+      <form #usuario="ngForm" (ngSubmit)="validarUsuario(usuario)">
+        <div class="input-group form-group mb-3">
+          <label class="lbl-login mb-0">Usuario</label>
+          <input
+            required
+            type="text"
+            placeholder="RUT sin DV, guiones ni puntos."
+            name="usuario"
+            autocomplete="off"
+            minlength="7"
+            ngModel
+          />
+          <span
+            *ngIf="usuario.submitted && usuario.controls['usuario'].errors"
+            class="text-danger animated fadeIn mt-1"
+            ><b>RUT no válido</b></span
+          >
+        </div>
+        <div class="input-group form-group mb-3">
+          <label class="lbl-login mb-0">Contraseña</label>
+          <input
+            required
+            type="password"
+            placeholder="Ingrese Contraseña"
+            name="password"
+            autocomplete="off"
+            ngModel
+          />
+          <span class="text-danger animated fadeIn mt-1"
+            ><b>Contraseña obligatoria</b></span
+          >
+        </div>
+
+        <div class="input-group"></div>
+
+        <div class="form-group">
+          <button type="submit" value="INGRESAR" class="btn btn-login">
+            INGRESAR
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="desarrollado">
+      © Desarrollado por el Departamento de Soporte y Gestión de Datos
+    </div>
+  </div>
+</div>

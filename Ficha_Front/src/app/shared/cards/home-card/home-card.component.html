@@ -1,0 +1,33 @@
+<div
+  [ngClass]="
+    disabled
+      ? 'card-fach card-subproceso bg-lightblue mb-3 card-disabled'
+      : 'card-fach card-subproceso bg-lightblue mb-3'
+  "
+>
+  <div class="sup-header"></div>
+  <div class="header">
+    <h2>{{ titleCard }}</h2>
+    <ng-container *ngIf="descripcion">
+      {{ descripcion }}
+    </ng-container>
+    <br />
+    <br />
+    <ng-container *ngIf="rol">
+      <i class="fas fa-user fa-xs me-1"></i> {{ rol }} <br />
+    </ng-container>
+    <ng-container *ngIf="tipoRol">
+      <i class="fas fa-dice-d6 fa-xs me-1"></i> {{ tipoRol }}
+    </ng-container>
+  </div>
+  <div>
+    <ng-container *ngIf="!disabled">
+      <app-button
+        [url]="url"
+        [btnType]="'btn-mini'"
+        [btnColor]="'btn-aceptar2'"
+        [btnText]="btnText"
+      ></app-button>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div
+  class="pcp-tooltip icon-circle"
+  [ngClass]="typeTooltip"
+  [attr.data-title]="text"
+>
+  <!--icono librería Font Awesome-->
+  <i
+    *ngIf="tipo === 'IFA'"
+    class="fas"
+    [ngClass]="iconName + ' ' + iconColor"
+  ></i>
+
+  <!--icono con letra-->
+  <div
+    *ngIf="tipo === 'IL'"
+    [ngClass]="typeTooltip + ' ' + bgColor + ' ' + iconColor"
+    class="pcp-icon pcp-icon-letra justify-content-center align-items-center d-flex tooltip-"
+  >
+    {{ letraIconIP }}
+  </div>
+
+  <!--icono con svg-->
+  <!--PENDIENTE-->
+  <div
+    *ngIf="tipo === 'ISVG'"
+    [ngClass]="'icon' + letraIconIP"
+    class="pcp-icon pcp-icon-svg justify-content-center align-items-center d-flex"
+  >
+    {{ letraIconIP }}
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row mt-5 mb-3">
+    <div class="col-lg-12">
+      <div class="col-lg-12 d-flex justify-content-start align-items-center">
+        <ng-container *ngIf="!tipo">
+          <h1 class="color-title me-3 mb-0">Mi Oficina</h1>
+          <app-button
+            [url]="'/index'"
+            [btnType]="'btn-mini'"
+            [btnColor]="'btn-out-aceptar'"
+            [btnText]="'regresar'"
+          ></app-button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <app-home-card
+        [titleCard]="'Recibe Postulación example'"
+        [descripcion]="
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit metus, leo elementum himenaeos platea sociosqu hac fames nullam proin, in id class purus nisi libero natoque.'
+        "
+        [rol]="'Especialista de Personal Example'"
+        [tipoRol]="'Automático'"
+        [url]="'/cw-mi-fach/postulacion'"
+        [btnText]="'ingresar'"
+      >
+      </app-home-card>
+    </div>
+    <div class="col-md-4">
+      <app-home-card
+        [titleCard]="'Autoriza Postulación example Disable'"
+        [descripcion]="
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit metus, leo elementum himenaeos platea sociosqu hac fames nullam proin, in id class purus nisi libero natoque.'
+        "
+        [rol]="'Jefe de Comandancia en Jefe Example'"
+        [tipoRol]="'Específico'"
+        [url]="'/cw-mi-fach/postulacion'"
+        [btnText]="'ingresar'"
+        [disabled]="true"
+      >
+      </app-home-card>
+    </div>
+  </div>
+</div>

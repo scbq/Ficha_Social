@@ -1,0 +1,25 @@
+/*TABS*/
+
+div#nav-tabContent {
+    padding: 20px;
+    border-bottom: 1px solid #f4f4f4;
+    border-left: 1px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid #f4f4f4;
+    background: #f9f9f9;
+    font-family: 'Exo-SemiBold', sans-serif;
+    color:#6d7ab5;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: #f4f4f4 #f4f4f4 #fff;
+    background:#ffede2;
+    color:#5663a9;
+}
+
+.nav-link[data-toggle]:not(.collapsed):after {
+    display: none;
+}

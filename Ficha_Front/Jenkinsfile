@@ -1,0 +1,141 @@
+pipeline{
+
+	agent any
+
+
+tools {
+   		nodejs 'node-22.15.0'
+   	}
+	environment {
+		PROJECT=getName()
+		VERSION=getVersion()
+		AMBIENTE=getBranch()
+	}
+
+stages {
+	stage('Clean') {
+			when {
+				expression {
+					return env.BRANCH_NAME == 'cw-master' || env.BRANCH_NAME == 'cw-release-1' || env.BRANCH_NAME == 'cw-develop' || env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'release-1'  || env.BRANCH_NAME == 'master'
+				}
+			}
+
+			steps {
+				sh """
+					echo "Running Clean"
+					echo Nombre rama: ${GIT_BRANCH}
+				"""
+				sh 'rm -rf ./dist'
+			}
+		}
+
+    stage('Install') {
+        steps {
+              sh """
+              echo "Instalando dependencia Angular"
+              """
+              sh 'npm install'
+			  //sh 'npm ci'
+        }
+	  	}
+
+	stage('Build') {
+			when {
+				expression {
+					return env.BRANCH_NAME == 'cw-master' || env.BRANCH_NAME == 'cw-release-1' || env.BRANCH_NAME == 'cw-develop' || env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'release-1'  || env.BRANCH_NAME == 'master' 
+				}
+			}
+
+			steps {
+				sh "npm run build-${env.AMBIENTE}"
+			}
+		}
+
+    stage('Docker') {
+			when {
+				expression {
+					return env.BRANCH_NAME == 'cw-master' || env.BRANCH_NAME == 'cw-release-1' || env.BRANCH_NAME == 'cw-develop' || env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'release-1'  || env.BRANCH_NAME == 'master'
+				}
+			}
+
+			steps {
+				script {
+					docker.withRegistry('http://192.168.15.244/', 'docker-image-registry') {
+						sh "docker build -t 192.168.15.244/${env.PROJECT}-${env.AMBIENTE}:${env.VERSION} ."
+						sh "docker push 192.168.15.244/${env.PROJECT}-${env.AMBIENTE}:${env.VERSION}"
+					}
+				}
+			}
+		}
+
+stage('Deploy') {
+      when {
+          expression {
+            return env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'cw-develop'
+          }
+        }
+			steps {
+				script{
+					withCredentials([usernamePassword(credentialsId: "ssh-front-${env.AMBIENTE}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+						def remote = [:]
+						remote.name = "${env.AMBIENTE}"
+						remote.host = getHost()
+						remote.user = USER
+						remote.password = PASS
+						remote.allowAnyHosts = true
+						try{
+							sshCommand remote: remote, command: "docker stop ${env.PROJECT}"
+						}catch(e) {
+							sshCommand remote: remote, command: "echo Contenedor Nuevo"
+						}
+                        sshCommand remote: remote, command: "docker pull 192.168.15.244/${env.PROJECT}-${env.AMBIENTE}:${env.VERSION}"
+                        sshCommand remote: remote, command:"docker run -itd --rm --name ${env.PROJECT} -P --network server-proxy 192.168.15.244/${env.PROJECT}-${env.AMBIENTE}:${env.VERSION}"
+					}
+				sleep(time: 15, unit: "SECONDS")
+				}
+			}
+		}
+	}
+}
+
+def getVersion() {
+	return sh(
+		script: 'cat ./package.json | grep version | head -1 | awk -F: \'{ print $2 }\' | sed \'s/[",]//g\' | awk \'{$1=$1};1\'',
+		returnStdout: true
+		).trim()
+}
+
+def getHost() {
+	if (env.BRANCH_NAME == 'master') {
+		return '192.168.15.24x'
+	} else if (env.BRANCH_NAME == 'release-1') {
+		return '192.168.15.24x'
+	} else if (env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'cw-develop' ) {
+		return '192.168.15.242'
+	}
+}
+
+def getName(){
+	if (env.BRANCH_NAME == 'develop') {
+		return 'web-template-19'
+	} else if (env.BRANCH_NAME == 'cw-develop' || env.BRANCH_NAME == 'cw-develop-v2') {
+		return 'cw-template-19'
+	} else if (env.BRANCH_NAME == 'cw-release-1' || env.BRANCH_NAME == 'cw-release-1-v2') {
+		return 'cw-template-19'
+	} else if (env.BRANCH_NAME == 'cw-master') {
+		return 'cw-template-19'
+	}
+}
+def getBranch(){
+	if (env.BRANCH_NAME == 'develop') {
+		return 'develop'
+	} else if (env.BRANCH_NAME == 'cw-develop' || env.BRANCH_NAME == 'cw-develop-v2') {
+		return 'cw-develop'
+	} else if (env.BRANCH_NAME == 'cw-release-1' || env.BRANCH_NAME == 'cw-release-1-v2') {
+		return 'cw-release-1'
+	} else if (env.BRANCH_NAME == 'cw-master') {
+		return 'cw-master'
+	}
+
+}
+

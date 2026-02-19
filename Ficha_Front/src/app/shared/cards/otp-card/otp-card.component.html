@@ -1,0 +1,42 @@
+<div class="card p-3 mt-3" *ngIf="view">
+  <div class="row">
+    <div class="col-lg-12 d-flex align-item-center">
+      <h6>Ingresar Clave OTP</h6>
+      <div class="wrapper ms-2 ms-2">
+        <i class="fa fa-question-circle" style="font-size: 1.2em"></i>
+        <div class="tooltip">
+          La clave OTP, es la clave de verificación que le proporciona Google
+          Authenticator para su firma electrónica.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input
+    class="form-control form-control-sm"
+    #otp
+    type="password"
+    id="password"
+    placeholder="Ingrese Clave OTP"
+    maxlength="6"
+    required
+    name="otp"
+    required
+  />
+
+  <!-- <input class="form-control form-control-sm" #_otp type="password" id="password"
+        placeholder="Ingrese Clave OTP" maxlength="6" required name="otp" required
+        [(ngModel)]="otp" /> -->
+
+  <!--  <i class="fas fa-eye mt-2 ml-0" id="togglePassword"> -->
+  <i class="fas fa-eye mt-2 ml-0" id="togglePassword" (click)="verPassword()">
+    <span>Ver OTP</span></i
+  >
+
+  <div class="card-footer text-right">
+    <button class="btn btn-sm btn-aceptar2 mt-2" (click)="enviarOtp(otp)">
+      Firmar Documento
+    </button>
+    <!-- <button (click)="firmarAltiro()" class="btn btn-sm btn-aceptar2 mt-2"> Firmar Documento</button> -->
+  </div>
+</div>

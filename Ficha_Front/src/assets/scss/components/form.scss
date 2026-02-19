@@ -1,0 +1,134 @@
+/*Estilos para los elementos correspondiente a formularios*/
+
+/*
+INDEX 
+1. Inputs
+2. Switch
+3. Filter Column Checklist Reports
+4. Table Thead Checklist Select All
+*/
+
+/* 1. Inputs*/
+
+input[type=text],
+input[type=search],
+input[type="date"]{
+    color: #78909C;}
+
+input[type="date"]{
+    border: 1px solid #ced4da;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.8;
+    filter: invert(0.8);
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
+  }
+
+
+input:focus {
+    background-color: #FEFEEE !important;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+::placeholder {
+    color: #d1d1d1;
+    font-size: 12px;
+    font-style: italic;
+}
+
+input[type=checkbox] {
+    border: none;
+    /* position: relative; */
+    bottom: 3px;
+}
+
+textarea:disabled::placeholder{
+    color:#b8babd;
+}
+
+
+/* 2. Switch*/
+
+.form-switch {
+    padding-left: 2.5em;
+}
+.form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280,  0,  0,  0.25%29'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position .15s ease-in-out;
+}
+@media (prefers-reduced-motion:reduce) {
+    .form-switch .form-check-input {
+    transition: none;
+}
+}.form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+.form-switch.form-check-reverse {
+    padding-right: 2.5em;
+    padding-left: 0;
+}
+.form-switch.form-check-reverse .form-check-input {
+    margin-right: -2.5em;
+    margin-left: 0;
+}
+.form-check-inline {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/*FORMULARIO*/
+
+.form-control {
+    border-radius: 0.15rem;
+}
+
+.form-control:disabled {
+    background: #f4f7fb;
+}
+
+.form-getdata .form-control {
+    border: 1px solid #e1e7ec;
+}
+
+.form-getdata .table-borderless thead {
+    font-family: 'Exo-SemiBold', sans-serif;
+    font-size: 0.75rem;
+}
+
+/* 3. Filter Column Checklist Reports */
+
+.count-item {
+    column-count: 3;
+    column-gap: 33px;
+    margin-left: "30px";
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* 4. Table Thead Checklist Select All*/
+
+.check-for-thead{font-size:9px; text-align:left; top:0;}
+.check-for-thead input[type=checkbox], tbody tr td .check-for-thead input[type=checkbox]  {top:0;}

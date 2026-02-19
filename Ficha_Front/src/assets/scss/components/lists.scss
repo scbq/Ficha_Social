@@ -1,0 +1,28 @@
+.list-simple{
+}
+
+.list-simple .item{
+    border-bottom:1px solid #daebf3;
+    padding-bottom:10px;
+    margin-bottom:15px;
+}
+
+.list-simple .item:nth-child(1){
+    border-top: 1px solid #daebf3;
+    padding-top:10px;
+}
+
+.list-simple .item .status{
+    align-items: flex-end;
+}
+
+.list-simple h6{
+    color:#5663a9;
+    font-size:0.8rem;
+    margin-top:5px;
+}
+
+.list-simple .badge-fach{
+    width:auto;
+    font-size: 0.475rem !important;
+}

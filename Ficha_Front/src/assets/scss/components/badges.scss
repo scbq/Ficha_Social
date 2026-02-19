@@ -1,0 +1,120 @@
+.portal-badge {
+    font-size: 8px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    font-family: 'Roboto-Regular', sans-serif;
+    width: fit-content;
+    vertical-align: middle;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.badge-vigente {
+    background-color: #fff;
+    border: 1px solid #65c77f;
+    color: #65c77f !important;
+}
+
+
+/*#6FD289* #65c77f*/
+
+.badge-finalizado {
+    background-color: #fff;
+    border: 1px solid #95a5c3;
+    /*E15E5E*/
+    color: #95a5c3 !important;
+    /**/
+}
+
+
+/*#6FD289* #65c77f*/
+
+.table-isla tbody tr td .portal-badge {
+    text-align: left;
+}
+
+
+/*BADGE*/
+
+.badge-fach {
+    font-size: 9px !important;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    line-height: 1;
+    display: inline-block;
+    font-family: 'Roboto-Regular', sans-serif !important;
+    /* font-size: 0.45rem !important; */
+    letter-spacing: 0.04rem;
+    text-align: center;
+    width: auto;
+}
+
+.badge-fach i.fa-circle {
+    font-size: .7em ;
+    line-height: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge-tablas-fach {
+    font-size: 8px !important;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: 'Roboto-Regular', sans-serif !important;
+    letter-spacing: 0.04rem;
+    border-radius: 25px;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+}
+
+.badge-status-activo {
+    border: 1px solid #31C559;
+    background: #EEFFF3;
+    border-radius: 25px;
+    color: #31C559;
+}
+
+/* .badge-fach{
+    display: inline-block;
+    font-family: 'Exo-Bold', sans-serif !important;
+    font-size: 0.55rem !important;
+    line-height:1;
+} */
+
+.auto-badge{width:auto !important;}
+.full-badge{width: 100% !important;}
+
+
+.badge-success{
+    background:#DEF8ED; 
+    color:#20AB71;
+    border-radius: 25px;
+ }
+ 
+ .badge-pending{
+     background:#FFEDE2; 
+     color:#FF8F4D;
+     border-radius: 25px;
+  }
+
+  .badge-danger{
+    background:#FFE0E4; 
+    color:#FF6379;
+    border-radius: 25px;    
+ }
+
+ .badge-warning{
+    background:#FEF0D5; 
+    color:#D9930B;
+    border-radius: 25px;    
+ }
+
+ .badge-primary{
+    background:#E6E9F8; 
+    color:#7C8AD9;
+    border-radius: 25px;    
+ }

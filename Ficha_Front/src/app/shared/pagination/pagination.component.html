@@ -1,0 +1,37 @@
+<div class="row row-portal" *ngIf="arregloDatos == null || arregloDatos.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-warning pt-2 pb-2" role="alert">
+            <span class="alert-link">Usted no cuenta con registros.</span>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="arregloDatos.length > 0" class="pcp-pagination d-flex justify-content-between mb-3">
+    <div>
+        <a id="previous_1" class="btn-mini" style="width:80px; text-align:center;" (click)="primera_pagina();">
+            <i class="fas fa-chevron-left me-1"></i>
+            Primera
+        </a>
+    </div>
+
+    <div class="col-lg-3 d-flex justify-content-center">
+            <a id="previous_1" class="d-flex align-items-center btn-mini pag-right" (click)="pagina_anterior();">
+                <i class="fas fa-chevron-left me-1"></i>
+            </a>
+
+            <div class="d-flex align-items-center">{{p1}} DE {{nTotalPag}}</div>
+
+            <a id="next_1" class="d-flex align-items-center btn-mini pag-left" (click)="pagina_siguiente();">
+                <i class="fas fa-chevron-right ms-1"></i>
+            </a>
+    </div>
+
+    <div>
+        <a id="previous_1" class="btn-mini" style="width:80px; text-align:center;" (click)="ultima_pagina();">
+            Última
+            <i class="fas fa-chevron-right me-1"></i>
+        </a>
+    </div>
+
+</div>

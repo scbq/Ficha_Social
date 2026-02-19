@@ -3,89 +3,149 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-first-angular-app": {
+    "cw-template-19": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
-          "polyfills": ["zone.js"],
+          "builder": "ngx-build-plus:build",
           "options": {
-            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "main": "src/main.ts",
+            "outputPath": "dist/cw-template-19",
+            "index": "src/index.html",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/styles.scss"],
+            "scripts": [
+              "src/assets/vendor/bootstrap-5/js/popper.min.js",
+              "src/assets/vendor/bootstrap-5/js/bootstrap.min.js",
+              "src/assets/vendor/bootstrap-5/js/popover.js",
+              "src/assets/vendor/bootstrap-5/js/tooltip.js"
+            ],
+            "allowedCommonJsDependencies": ["sweetalert2", "sha1"]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "500kb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "cw-test": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "20mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "20mb",
+                  "maximumError": "50mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ],
+              "outputHashing": "none",
+              "scripts": [],
+              "styles": [],
+              "vendorChunk": false,
+              "commonChunk": false,
+              "namedChunks": true,
+              "sourceMap": true,
               "optimization": false,
+              "aot": true,
+              "buildOptimizer": false,
+              "inlineStyleLanguage": "css"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "my-first-angular-app:build:production"
+              "buildTarget": "cw-template-19:build:production"
             },
             "development": {
-              "buildTarget": "my-first-angular-app:build:development"
+              "buildTarget": "cw-template-19:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
+          "builder": "ngx-build-plus:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+            "styles": ["src/styles.scss"],
+            "scripts": []
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "79e7ff7f-4a38-4ea1-be1d-8b1ec5dafd23"
+    "analytics": "82db874a-b08e-4baa-832e-25b73f3a5b77"
   }
 }

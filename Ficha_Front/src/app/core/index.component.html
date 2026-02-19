@@ -1,0 +1,38 @@
+<app-navbar *ngIf="!showNav"></app-navbar>
+<!--TARJETAS-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card-fach card-subproceso bg-lightgrey">
+        <div class="header"></div>
+        <div class="body">
+          <h1>{{ proyectName }}</h1>
+        </div>
+
+        <p>
+          {{ proyectName }}<br />
+          - MI-FACH descripcion de acciones de modulo.<br />
+          - Mi-OFICINA descripcion de acciones de modulo.
+        </p>
+        <div class="icon-circle bg-blue"></div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <app-home-card
+        [titleCard]="'Mi Fach'"
+        [url]="'/cw-mi-fach'"
+        [btnText]="'ingresar'"
+      ></app-home-card>a
+    </div>
+    <!--     <a [routerLink]="['../cw-mi-fach']">Ir a Mi Oficina</a>
+ -->
+    <div class="col-md-4">
+      <app-home-card
+        [titleCard]="'Mi Oficina'"
+        [url]="'/cw-mi-oficina'"
+        [btnText]="'ingresar'"
+      ></app-home-card>
+    </div>
+  </div>
+</div>

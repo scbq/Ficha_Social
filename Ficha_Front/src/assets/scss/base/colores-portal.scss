@@ -1,0 +1,801 @@
+/*INDEX
+
+1. Backgrounds
+2. Botones
+3. Textos
+
+
+
+*/
+
+
+/************************
+        COLORES
+*************************/
+
+/*BACKGROUNDS*/
+.bkg-comando {
+  background: #5c6bc0;
+}
+.bkg-iniciomf {
+  background: #5c6bc0;
+}
+.bkg-bienestar {
+  background: #88bc3a;
+}
+.bkg-rrhh {
+  background: #ffa726;
+}
+.bkg-educacional {
+  background: #03a9f4;
+}
+.bkg-sanidad {
+  background: #4db6ac;
+}
+.bkg-gestion {
+  background: #fbc02d;
+}
+
+/*TEXTO*/
+.txt-comando {
+  color: #5c6bc0;
+}
+.txt-iniciomf {
+  color: #5c6bc0;
+}
+.txt-bienestar {
+  color: #88bc3a;
+}
+.txt-rrhh {
+  color: #ffa726;
+}
+.txt-educacional {
+  color: #03a9f4;
+}
+.txt-sanidad {
+  color: #4db6ac;
+}
+.txt-gestion {
+  color: #fbc02d;
+}
+.txt-white {
+  color: #fff;
+}
+
+/*BOTONES CON CONLOR DE CADA DIVISION*/
+/* .btn-administrar,  .btn-administrar:hover, .btn, .btn:hover{color:#fff !important;}
+
+.comando .btn-administrar, .comando .btn{ background:#5C6BC0; border:#5C6BC0;}
+.comando .btn-administrar:hover,  .comando .btn:hover{background:#5C6BC0;}
+
+.iniciomf .btn-administrar, .iniciomf .btn{ background:#5C6BC0; border:#5C6BC0;}
+.iniciomf .btn-administrar:hover,  .iniciomf .btn:hover{background:#5C6BC0;}
+
+.rrhh .btn-administrar, .rrhh .btn{ background:#FFA726;  border:#FFA726;}
+.rrhh .btn-administrar:hover, .rrhh .btn:hover{background:rgb(221, 144, 28);}
+
+.bienestar .btn-administrar,  .bienestar .btn{ background:#88BC3A; border:#88BC3A;}
+.bienestar .btn-administrar:hover, .bienestar .btn:hover{background:rgb(106, 151, 38);}
+
+.educacional .btn-administrar, .educacional .btn{ background:#03A9F4; border:#03A9F4;}
+.educacional .btn-administrar:hover, .educacional .btn:hover{background:#007AC1;}
+
+.sanidad .btn-administrar, .sanidad .btn{ background:#4DB6AC; border:#4DB6AC;}
+.sanidad .btn-administrar:hover, .sanidad .btn:hover{background:rgb(57, 155, 145);}
+
+.gestion .btn-administrar, .gestion .btn{ background:#FBC02D; border:#FBC02D;}
+.gestion .btn-administrar:hover, .gestion .btn:hover{background:rgb(218, 167, 38);} */
+
+/*SIDEBAR - SIDEHEADER*/
+/* .side-header{        border-bottom-right-radius: 15px;} */
+.comando .side-header {
+  background: #5c6bc0;
+}
+.iniciomf .side-header {
+  background: #5c6bc0;
+}
+.rrhh .side-header {
+  background: #ffa726;
+}
+.bienestar .side-header {
+  background: #88bc3a;
+}
+.educacional .side-header {
+  background: #03a9f4;
+}
+.sanidad .side-header {
+  background: #4db6ac;
+}
+.gestion .side-header {
+  background: #fbc02d;
+}
+.mioficina .side-header {
+  background: #ff9e65;
+}
+
+/*MINICARD*/
+/*Color icono mini card cuando ingresa a */
+.comando .mini-card i {
+  color: #5c6bc0;
+}
+.rrhh .mini-card i {
+  color: #ffd092;
+}
+.bienestar .mini-card i {
+  color: #dbf2b9;
+}
+.educacional .mini-card i {
+  color: #caeefe;
+}
+.sanidad .mini-card i {
+  color: #caeefe;
+}
+.gestion .mini-card i {
+  color: #ffe299;
+}
+
+/******************************************************
+        Color botón  mini card  | Estado normal
+*******************************************************/
+.content-portal button {
+  transition: 0.3s;
+}
+
+.rrhh .mini-card button {
+  background: #ffa726;
+}
+.bienestar .mini-card button {
+  background: #88bc3a;
+}
+.educacional .mini-card button {
+  background: #03a9f4;
+}
+.sanidad .mini-card button {
+  background: #4db6ac;
+}
+.gestion .mini-card button {
+  background: #fbc02d;
+}
+
+/*Color botón  mini card  | Estado hover*/
+.rrhh .mini-card button:hover {
+  background: rgb(233, 153, 32);
+}
+.bienestar .mini-card button:hover {
+  background: rgb(113, 159, 45);
+}
+.educacional .mini-card button:hover {
+  background: #03a9f4;
+}
+.sanidad .mini-card button:hover {
+  background: #4db6ac;
+}
+.gestion .mini-card button:hover {
+  background: #fbc02d;
+}
+
+/*iconos */
+/* sin usar*/
+/*.mini-card-gral i{color:#FFD092;}
+.mini-card-gral i{color:#DBF2B9;}
+.mini-card-gral i{color:#CAEEFE;}
+.mini-card-gral i{color:#CAEEFE;}
+.mini-card-gral i{color:#FFE299;}*/
+
+/*TARJETAS Index Unidades General*/
+.bt-rrhh h4:before {
+  border-bottom: 3px solid #ffa726;
+}
+.bt-bienestar h4:before {
+  border-bottom: 3px solid #88bc3a;
+}
+.bt-educacional h4:before {
+  border-bottom: 3px solid #03a9f4;
+}
+.bt-sanidad h4:before {
+  border-bottom: 3px solid #4db6ac;
+}
+.bt-gestion h4:before {
+  border-bottom: 3px solid #fbc02d;
+}
+
+.bt-rrhh {
+  border-color: #ffa726;
+}
+.bt-bienestar {
+  border-color: #88bc3a;
+}
+.bt-educacional {
+  border-color: #03a9f4;
+}
+.bt-sanidad {
+  border-color: #4db6ac;
+}
+.bt-gestion {
+  border-color: #fbc02d;
+}
+
+.bt-rrhh i {
+  color: #ffa726;
+}
+.bt-bienestar i {
+  color: #88bc3a;
+}
+.bt-educacional i {
+  color: #03a9f4;
+}
+.bt-sanidad i {
+  color: #4db6ac;
+}
+.bt-gestion i {
+  color: #fbc02d;
+}
+
+/*MI FACH*/
+/*Sidebar Header Funcionario*/
+.comando .side-header-fun {
+  background: #5c6bc0;
+}
+.iniciomf .side-header-fun {
+  background: #5c6bc0;
+}
+.rrhh .side-header-fun {
+  background: #ffa726;
+}
+.bienestar .side-header-fun {
+  background: #88bc3a;
+}
+.educacional .side-header-fun {
+  background: #03a9f4;
+}
+.sanidad .side-header-fun {
+  background: #4db6ac;
+}
+.gestion .side-header-fun {
+  background: #fbc02d;
+}
+
+.mioficina .side-header-fun {
+  background: #ff9e65;
+}
+
+/*MAIN TITLE POR DIVISION*/
+/*tendrá color todos los titulos que lleven la clase .color-title*/
+/* .comando .color-title{color:#5C6BC0;}
+.iniciomf .color-title{color:#5C6BC0;}
+.rrhh .color-title{color:#eb910c ;}#FFA726 */
+/* .bienestar .color-title{color:#88BC3A;} */
+/* .educacional .color-title{color:#03A9F4;}
+.sanidad .color-title{color:#4DB6AC;}
+.gestion .color-title{color:#FBC02D;} */
+
+.comando .color-title,
+.iniciomf .color-title,
+.rrhh .color-title,
+.bienestar .color-title,
+.educacional .color-title,
+.sanidad .color-title,
+.gestion .color-title,
+.mioficina .color-title {
+  color: #5663a9;
+}
+
+.color-title {
+  color: #5663a9 /*#556098 #607D8B - #5d6694*/;
+}
+.title-neutro {
+  color: #607e8d;
+}
+
+/*BACKGROUNDS GENERICOS*/
+.bg-grey1 {
+  background: #fafafa;
+}
+.bg-grey2 {
+  background: #f5f5f5;
+}
+.bg-grey3 {
+  background: #eceff1;
+}
+.bg-grey4 {
+  background: #eee;
+}
+.bg-grey5 {
+  background: #fcfcfc;
+}
+
+/*shadow*/
+.shadow-card {
+  /*-webkit-box-shadow: 0px 3px 17px -2px rgba(144,164,174,1);
+        -moz-box-shadow: 0px 3px 17px -2px rgba(144,164,174,1);
+        box-shadow: 0px 3px 17px -2px rgba(144,164,174,1);*/
+  /*-webkit-box-shadow: 0px 3px 8px -2px rgba(144,164,174,1);
+        -moz-box-shadow: 0px 3px 8px -2px rgba(144,164,174,1);
+        box-shadow: 0px 3px 8px -2px rgba(144,164,174,1);*/
+  -webkit-box-shadow: 0px 3px 8px -2px rgba(207, 216, 220, 1);
+  -moz-box-shadow: 0px 3px 8px -2px rgba(207, 216, 220, 1);
+  box-shadow: 0px 3px 8px -2px rgba(207, 216, 220, 1);
+}
+
+/************************************************************************************/
+.comando .mini-card,
+.comando .card-tasks {
+  border: 1px solid #5c6bc0;
+}
+.rrhh .content-portal .mini-card,
+.rrhh .content-portal .card-tasks {
+  border: 1px solid #ffa726;
+  /*background: #FFF3E0;*/
+}
+
+.bienestar .content-portal .mini-card,
+.bienestar .content-portal .card-tasks {
+  border: 1px solid #88bc3a;
+}
+
+.educacional .content-portal .mini-card,
+.educacional .content-portal .card-tasks {
+  border: 1px solid #03a9f4;
+}
+
+.sanidad .mini-card,
+.sanidad .card-tasks {
+  border: 1px solid #4db6ac;
+  /*background: #4DB6AC;*/
+}
+
+.gestion .mini-card,
+.gestion .card-tasks {
+  border: 1px solid #fbc02d;
+  /*background: #FFF2D1;*/
+}
+
+.sanidad .mini-card button,
+.sanidad .card-tasks {
+  border: 1px solid #4db6ac;
+}
+
+/*MODIFICACIONES A MENU ANGULAR + MATERIAL*/
+
+/* .rrhh .amml-container .mat-list .mat-list-item{
+     background-color:#fbd295;
+} */
+
+/*MATERIAL SIDEBAR*/
+.comando .amml-container .mat-list .mat-list-item:hover {
+  background-color: #dde2ff !important;
+}
+.rrhh .amml-container .mat-list .mat-list-item:hover {
+  background-color: #ffedd3 !important;
+}
+.bienestar .amml-container .mat-list .mat-list-item:hover {
+  background-color: #ecfdd3 !important;
+}
+.educacional .amml-container .mat-list .mat-list-item:hover {
+  background-color: #dbf2fd !important;
+}
+.sanidad .amml-container .mat-list .mat-list-item:hover {
+  background-color: #d2f5f2 !important;
+}
+.gestion .amml-container .mat-list .mat-list-item:hover {
+  background-color: #fff4d9 !important;
+}
+.mioficina .amml-container .mat-list .mat-list-item:hover {
+  background-color: #ffe8da !important;
+}
+.rrhh .amml-container .mat-list .mat-list-item:hover {
+  transition: 0.3s;
+}
+.level-2,
+.level-3 {
+  transition: 0.3s;
+}
+
+/*MATERIAL SIDEBAR - ACTIVE*/
+.comando .amml-item.selected-amml-item.active-amml-item {
+  background: #dde2ff !important;
+}
+.rrhh .amml-item.active-amml-item {
+  background: #ffedd3 !important;
+}
+.bienestar .amml-item.selected-amml-item.active-amml-item {
+  background: #ecfdd3 !important;
+}
+.educacional .amml-item.selected-amml-item.active-amml-item {
+  background: #dbf2fd !important;
+}
+.sanidad .amml-item.selected-amml-item.active-amml-item {
+  background: #d2f5f2 !important;
+}
+.gestion .amml-item.selected-amml-item.active-amml-item {
+  background: #fff4d9 !important;
+}
+.mioficina .amml-item.selected-amml-item.active-amml-item {
+  background: #ffe8da !important;
+}
+
+/*bordes de colores*/
+.bb-grey {
+  border-bottom: 1px solid rgb(161, 165, 172);
+}
+.rrhh .bb-color {
+  border-bottom: 1px solid #ffedd3;
+}
+
+.btn-outline {
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: 0.3s;
+}
+.btn-outline {
+  transition: 0.3s;
+}
+.rrhh .btn-outline {
+  color: #ffa726 !important;
+  border: 1px solid #ffa726;
+  background: #fff !important;
+}
+.rrhh .btn-outline:hover {
+  color: #fff !important;
+  border: 1px solid #ffa726;
+  background: #ffa726 !important;
+}
+
+/*background color sistemas*/
+.comando .sistemas {
+  background-color: #dde2ff !important;
+}
+.rrhh .sistemas {
+  background-color: #fff5e5 !important;
+}
+.bienestar .sistemas {
+  background-color: #ecfdd3 !important;
+}
+.educacional .sistemas {
+  background-color: #dbf2fd !important;
+}
+.sanidad .sistemas {
+  background-color: #d2f5f2 !important;
+}
+.gestion .sistemas {
+  background-color: #fff4d9 !important;
+}
+
+/*COLOR BOTONES*/
+.btn-neutro {
+  background: #b0babf !important;
+}
+.btn-neutro:hover {
+  background: #92a0a7 !important;
+}
+
+.btn-neutro2 {
+  background: #c1d0d8 !important;
+  color: #45565f !important;
+}
+.btn-neutro2:hover {
+  background: #b6c6ce !important;
+  color: #45565f !important;
+}
+
+.btn-out-neutro{
+  background:#ecf3f7;
+  color:#46697a;
+  border:1px solid #90a6b1;
+}
+
+.btn-out-neutro:hover{
+  background:#ecf3f7;
+  color:#46697a;
+  border:1px solid #90a6b1;
+}
+
+.btn-out-neutro2{
+  background:#f1f3f8;
+  color:#7494a5;
+  border:1px solid #7494a5 !important;
+  transition: .3s;
+}
+
+.btn-out-neutro2:hover{
+  background:#e7eaf1;
+  color:#7494a5;
+  border:1px solid #7494a5;
+  transition: .3s;
+}
+
+.btn-cancelar {
+  background: #ef556a !important; /*ed344e*/
+  color: #fff;
+}
+
+.btn-cancelar:hover {
+  background: #e02f47 !important;
+  color: #fff;
+}
+
+.btn-out-cancelar {
+  color: #ef556a!important;
+  background-color: #fff3f3 !important;
+  border:1px solid #ef556a !important;
+}
+.btn-out-cancelar:hover {
+  color: #ef556a !important;
+  background-color: #ffe9e9 !important;
+  border:1px solid #ef556a;
+}
+
+.btn-aceptar {
+  background: #71b952 !important; /*3eaf51*/
+} /*71B952*/
+.btn-aceptar:hover {
+  background: #63a945 !important; /*3eaf51*/
+}
+
+.btn-aceptar2{
+  background: #3cc58c !important; /*3eaf51*/
+  color: #fff;
+} /*48d07e*/
+.btn-aceptar2:hover {
+  background: #35bf86 !important; /*3eaf51*/
+  color: #fff;
+}
+
+/*btn en */
+.table td a.btn-aceptar2 {
+  background: #3cc58c !important; /*3eaf51*/
+  color: #fff;
+} /*48d07e*/
+
+.table td a.btn-aceptar2:hover {
+  background: #35bf86 !important; /*3eaf51*/
+  color: #fff;
+}
+
+
+/*#23C069 | Date:21012020*/
+
+.btn-out-aceptar {
+  background: #e9fff6 !important;
+  color: #23c069;
+  border: 1px solid #23c069 !important;
+}
+
+.btn-out-aceptar:hover {
+  color: #23c069;
+  background: #ddfcef !important;
+  border: 1px solid #23c069 !important;
+}
+
+
+/* .btn-out-aceptar:hover {
+} */
+
+.no-btn2:hover {
+  color: #a1a6b5 !important;
+  transition: 0.3s;
+}
+
+.btn-info {
+  background: #6f7cc9;
+  border: 1px solid #6f7cc9;
+} /*6f7cc9*/ /*919de2*/
+
+.table td a.btn-info {
+  background: #6f7cc9;
+  border: 1px solid #6f7cc9;
+  color:#fff;
+}
+
+.table td a.btn-info:hover{
+  background: #6f7cc9;
+  border: 1px solid #6f7cc9;
+  color:#fff;
+}
+
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:not(:disabled):not(.disabled):active {
+  background: #6f7cc9;
+  border: 1px solid #6f7cc9;
+} /*4d5aa3*/ /*6f7cc9*/
+
+.btn-info:disabled {
+  color: #fff;
+  background-color: #9daab1;
+  border-color: #9daab1;
+}
+
+.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle
+{  border-color: #6f7cc9;}
+
+.btn-info:hover
+{  border-color: #6f7cc9;}
+
+.btn-out-info{
+  border: 1px solid #6f7cc9 !important;
+  color:#6f7cc9;
+}
+
+.btn-out-info:hover{
+  border: 1px solid #6f7cc9;
+  color:#fff;
+  background-color:#6f7cc9; }
+
+.btn-info2{
+  background:#EAECF3;
+  color:#3F4866;
+}
+
+.btn-info2:hover{
+  background:#D3D7E3;
+  color:#3F4866;
+}
+  
+
+
+/*Botones link*/
+/* .comando .no-btn{color:#5C6BC0;}
+.iniciomf .no-btn{color:#5C6BC0;}
+.rrhh .no-btn{color:#eb910c ;}
+.bienestar .no-btn{color:#88BC3A;}
+.educacional .no-btn{color:#03A9F4;}
+.sanidad .no-btn{color:#4DB6AC;}
+.gestion .no-btn{color:#FBC02D;} */
+
+/*TEXTOS*/
+.text-danger {
+  color: #e44a59 !important;
+}
+
+/*ICONOS*/
+.icon-light {
+  color: #b4c4cc;
+}
+.icon-white {
+  color: #b4c4cc;
+}
+.icon-danger {
+  color: #ffb2bd;
+} /*f5a9a9*/
+
+/*DASHBOARD*/
+.c-default {
+  color: #7c82a2;
+} /*#7C82A2*/
+.c-orange {
+  color: #f58e51;
+}
+
+.c-default {
+  color: #5c6bc0;
+}
+.c-default-0 {
+  color: #d5d8f3;
+}
+.c-default-1 {
+  color: #7c82a2;
+}
+
+/*COLORES CARD TOTALIZADORES*/
+.bg-default {
+  background: #fff6e9;
+}
+
+/*BADGES*/
+
+.badge-status-activo {
+  border: 1px solid #31c559;
+  background: #eefff3;
+  border-radius: 25px;
+  color: #31c559;
+}
+
+.badge-verde {
+  border: 1px solid #31c559; /*31c559*/
+  background: #31c559;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.badge-out-verde {
+  border: 1px solid #3cc58c;
+  background: #eefff3;
+  border-radius: 25px;
+  color: #1fad72;
+}
+
+.badge-rojo {
+  border: 1px solid #fc6170; /*ed344e*/
+  background: #fc6170;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.badge-out-rojo {
+  border: 1px solid #ed344e;
+  background: #fff3f3;
+  border-radius: 25px;
+  color: #ed344e;
+}
+
+.badge-naranjo {
+  border: 1px solid #fd7e14;
+  background: #fd7e14;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.badge-out-naranjo {
+  border: 1px solid #fd7e14;
+  background: #fbf5f1;
+  border-radius: 25px;
+  color: #fd7e14 !important;
+}
+
+.badge-neutro {
+  border: 1px solid #7081a0;
+  background: #7081a0;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.badge-out-neutro {
+  border: 1px solid #7081a0;
+  background: #ffffff;
+  border-radius: 25px;
+  color: #7081a0;
+}
+
+
+
+/*COLORES TEXTOS*/
+
+.c-verde {
+  color: #3cc58c;
+}
+.c-rojo {
+  color: #fc6170;
+}
+
+/*LIGHT Backgrounds*/
+.bg-lightblue {
+  background: #f3f7ff;
+}
+.bg-lightgreen {
+  background: #edfce8;
+}
+.bg-lightorange {
+  background: #fffaec; /*ffeede*/
+}
+.bg-lightgrey {
+  background: #f8f8f8;
+}
+.bg-lightyellow {
+  background: #FEFAE9; /*#fff9de*/
+}
+/* .bg-lightred{background:#FFE6E6;} */
+
+.bg-blue {
+  background: #d2d9ff;
+}
+
+.bg-blue.icon-circle i {
+  color: #959fd3;
+}
+
+.bg-light-bluegrey{
+  background: #e8edf9;
+}
+
+
+/********************   TEXTOS   **********************/
+
+.text-alert{
+  color:#fc6170;
+}
+
+.txt-success{
+  color: #23c069;
+}

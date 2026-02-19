@@ -1,0 +1,61 @@
+/*PROBANDO OTRO MULTISTEP*/
+
+.progressStep{
+    counter-reset:step;
+    margin-top:50px;
+}
+
+.progressStep li{
+  list-style-type: none;
+  float:left;
+  width:25%;
+  position: relative;
+  text-align: center;
+  font-family: 'Exo-SemiBold', sans-serif;
+  font-size: .75rem;
+}
+
+.progressStep li:before{
+   content: counter(step);
+   counter-increment:step;
+   width:25px;
+   height:25px;
+   line-height:25px;
+   border:1px solid #ddd;
+   display: block;
+   text-align:center;
+   margin:0 auto 10% auto;
+   border-radius:50%;
+   z-index: 1;
+  position: relative;
+  background-color: #efefef;
+}
+
+.progressStep li:after{
+    content:'';
+    position: absolute;
+  width:100%;
+  height:2px;
+  background-color: #efefef;
+  top:11px;
+  left: -50%;
+  }
+
+  .progressStep li:first-child:after{
+      content:none;
+  }
+
+  .progressStep li.active{
+      color:blue;
+  }
+
+  .progressStep li.active::before{
+      border-color: #ff9e65;
+      background-color:  #ffba91; /*#ff9e65;*/
+      color: #fff;
+
+  }
+
+  .progressStep li.active + li:after {
+      background-color: #ff9e65;
+  }

@@ -1,0 +1,64 @@
+<ng-container *ngIf="shouldShowNavbar()">
+  <div class="mb-4">
+    <div class="userLogged pt-2 pb-2">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between">
+          <div class="ps-3">
+            <i class="fas fa-map-marker-alt me-2 fa-2xl"></i
+            >{{ _router.url | uppercase }}
+          </div>
+          <div class="ps-3">
+            <ng-container
+              *ngIf="_apiResumenFunc.resumenFuncionario.nombres; else spinner"
+            >
+              <i class="fas fa-user-circle me-2 fa-2xl"></i>({{
+                _apiResumenFunc.resumenFuncionario.grado_esca
+              }})
+              {{ _apiResumenFunc.resumenFuncionario.nombres }}
+              {{ _apiResumenFunc.resumenFuncionario.ape_materno }}
+              {{ _apiResumenFunc.resumenFuncionario.ape_materno }}
+            </ng-container>
+            <ng-template #spinner>
+              <div class="spinner"></div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg" style="background: #eaecf3">
+      <div class="container-fluid d-flex justify-content-between">
+        <div class="navbar-brand pe-5">
+          <a style="font-weight: 700" routerLink="/index">{{ proyectName }}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/index"
+                ><i class="fas fa-home fa-2xl"></i
+              ></a>
+            </li>
+            <!--  <li class="nav-item">
+              <a class="nav-link" routerLink="/cw-mi-oficina/ui-components"
+                >UI Components</a
+              >
+            </li> -->
+          </ul>
+        </div>
+
+        <div id="logout-section">
+          <button
+            type="button"
+            class="btn btn-dark"
+            style="background: #5c6480; border: 1px solid #5c6480"
+            name="logout"
+            (click)="cerrarSession()"
+          >
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</ng-container>

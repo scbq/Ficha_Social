@@ -1,0 +1,205 @@
+/*INDEX STEP PROGRESS
+1. STEP PROGRESS VERTICAL
+2. STEP PROGRESS HORIZONTAL
+*/
+
+
+/*1. STEP PROGRESS VERTICAL*/
+
+.StepProgress {
+    position: relative;
+    padding-left: 45px;
+    list-style: none;
+}
+.StepProgress::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 10px;
+    height: 100%;
+}
+.StepProgress-item {
+    position: relative;
+    counter-increment: list;
+}
+.StepProgress-item:not(:last-child) {
+    padding-bottom: 20px;
+}
+.StepProgress-item::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    left: -28px;
+    height: 100%;
+    width: 10px;
+}
+
+/*CIRCULO*/
+.StepProgress-item::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -38px;
+    width: 23px;
+    height: 23px;
+    border: 2px solid #adadad;
+    border-radius: 50%;
+    background-color: #FFF;
+}
+.StepProgress-item.is-done::before {
+    border-left: 2px solid #3cc58c; 
+}
+
+/*Icons*/
+
+/*DONE*/
+
+.StepProgress-item.is-done::after {
+    font-family: 'bootstrap-icons';
+    /* content: "✔"; */
+    content: "\F26E";
+    font-size: 13px;
+    color: #FFF;
+    /* text-align: center; */
+    border: 2px solid #3cc58c;
+    background-color: #3cc58c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .StepProgress-item.is-done:last-child::before {
+    border-left: 2px solid fuchsia;
+} */
+
+.StepProgress-item::before {
+    border-left: 2px solid #adadad;
+}
+
+
+
+/*CURRENT*/
+.StepProgress-item.current::after {
+    content: counter(list);
+    padding-top: 1px;
+    width: 23px;
+    height: 23px;
+    top: -4px;
+    left: -38px;
+    font-size: 14px;
+    text-align: center;
+    color: #f19e31;
+    border: 2px solid #f19e31;
+    background-color: white;
+}
+
+.StepProgress-item.current::after {
+    font-family: 'bootstrap-icons';
+    /* content: "✔"; */
+    content: '\F2EA';
+    font-size: 13px;
+    color: #FFF;
+    /* text-align: center; */
+    border: 2px solid #f19e31;
+    background-color: #f19e31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.StepProgress-item.current h6, .StepProgress-item.current h5{
+    color:#f19e31;
+}
+
+/*CANCEL*/
+.StepProgress-item.is-cancel::after {
+    font-family: 'bootstrap-icons';
+    content: 'x'; /*\F659*/
+    padding-top: 1px;
+    width: 25px;
+    height: 25px;
+    top: -4px;
+    left: -39px;
+    font-size: 18px; /*12px*/
+    text-align: center;
+    color: #e05846;
+    border: 2px solid #e05846;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*SIN ESTADO*/
+.StepProgress-item.pending::after {
+    /* content: counter(list); */
+    font-family: 'bootstrap-icons';
+    content:'\F2EA';
+    font-weight: 600;
+    /* padding-top: 1px; */
+    width: 22px;
+    height: 22px;
+    top: -4px;
+    left: -38px;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+    border: 2px solid #d0d0d0;
+    background-color: #d0d0d0;
+    justify-content: center;
+    align-items: center;
+}
+
+.StepProgress-item.current::after {
+    font-family: "bootstrap-icons";
+    /* content: "✔"; */
+    content: '\F2EA';
+    font-size: 15px;
+    color: #FFF;
+    /* text-align: center; */
+    border: 2px solid #f19e31;
+    background-color: #f19e31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.StepProgress-item h6, .StepProgress-item h5{
+    color:grey;
+}
+
+.StepProgress strong {
+    display: block;
+}
+
+.StepProgress-item p {
+    color: grey;
+    text-transform: uppercase;
+    font-size: 12px;;
+}
+.StepProgress-item span{
+    font-size: 12px;
+    font-style: italic;
+    text-transform: none;
+}
+
+.StepProgress-item.current:last-of-type:before,
+.StepProgress-item.is-done:last-of-type:before,
+.StepProgress-item.is-cancel:last-of-type:before,
+.StepProgress-item:last-of-type:before{
+    border-left: none;
+}
+
+/*Title Step Progress Vertical*/
+
+.StepProgress-item.is-done h6, .StepProgress-item.is-done h5{
+    color:#1db375;
+}
+
+.StepProgress-item h5, .StepProgress-item h6{
+    font-size: 15px;
+}
+

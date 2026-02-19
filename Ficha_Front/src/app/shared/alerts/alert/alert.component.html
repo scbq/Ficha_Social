@@ -1,0 +1,9 @@
+<div class="alert p-2" [ngClass]="'alert-' + alertType" role="alert">
+    <ng-container *ngIf="iconVisible==='s'">
+        <i [ngClass]="iconType + ' ' + iconName"></i>
+    </ng-container>
+    <ng-container *ngIf="iconVisible==='s'">
+        <strong>{{titleMsg}}</strong>
+    </ng-container>
+    {{alertMsg}}
+</div>

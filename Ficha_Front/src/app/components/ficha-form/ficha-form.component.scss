@@ -1,0 +1,73 @@
+// Estilos específicos para la Ficha Social
+
+.label-bold {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.header-blue {
+    background-color: #26388E; /* Portal Primary Color */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Exo-Medium', sans-serif;
+
+    &.standalone {
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+
+    &.rounded-full {
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
+.custom-select-box {
+    border: 1px solid #26388E;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 8px;
+    background: white;
+    text-align: center;
+    color: #26388E;
+    width: 100%;
+    font-weight: 500;
+}
+
+.table-blue {
+    thead {
+        background-color: #26388E;
+        color: white;
+
+        th {
+            font-weight: 400;
+            font-size: 0.75rem;
+            border: 1px solid #3f4b8d;
+        }
+    }
+}
+
+.text-precargado {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+.text-usuario {
+    color: #d97706 !important;
+    font-weight: 600;
+}
+
+// Ajuste para inputs dentro del diseño
+input.form-control-sm,
+select.form-select-sm {
+    border-radius: 4px;
+    border: 1px solid #c8d1e0;
+}

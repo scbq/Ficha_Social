@@ -1,0 +1,16 @@
+$size: 20px;
+$border-size: 4px;
+$primary-color: #5663A9;
+
+.spinner {
+  width: $size;
+  height: $size;
+  border: $border-size solid rgba(0, 0, 0, 0.1);
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }}
