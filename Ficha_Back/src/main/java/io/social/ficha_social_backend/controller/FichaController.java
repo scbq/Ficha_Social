@@ -26,8 +26,8 @@ public class FichaController {
     public FichaSocial crearFicha(@org.springframework.web.bind.annotation.RequestBody FichaSocial ficha) {
         // Asegurar que la persona existe si viene con ID (para evitar errores de
         // detached entity)
-        if (ficha.getPersona() != null && ficha.getPersona().getPersCod() != null) {
-            personaRepo.findById(ficha.getPersona().getPersCod())
+        if (ficha.getPersona() != null && ficha.getPersona().getRut() != null) {
+            personaRepo.findById(ficha.getPersona().getRut())
                     .ifPresent(ficha::setPersona);
         }
 
@@ -38,6 +38,17 @@ public class FichaController {
         if (ficha.getGrupoFamiliar() != null) {
             ficha.getGrupoFamiliar().forEach(m -> m.setFichaSocial(ficha));
         }
+        if (ficha.getBienesInmuebles() != null) {
+            ficha.getBienesInmuebles().forEach(i -> i.setFichaSocial(ficha));
+        }
         return fichaRepo.save(ficha);
+    }
+
+    @org.springframework.web.bind.annotation.GetMapping("/persona/{rut}")
+    public org.springframework.http.ResponseEntity<FichaSocial> obtenerPorPersona(
+            @org.springframework.web.bind.annotation.PathVariable String rut) {
+        return fichaRepo.findByPersonaRut(rut)
+                .map(org.springframework.http.ResponseEntity::ok)
+                .orElse(org.springframework.http.ResponseEntity.notFound().build());
     }
 }

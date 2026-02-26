@@ -4,6 +4,7 @@ import io.social.ficha_social_backend.model.catalogos.CatComuna;
 import io.social.ficha_social_backend.model.catalogos.CatEstadoCivil;
 import io.social.ficha_social_backend.model.catalogos.CatRegion;
 import io.social.ficha_social_backend.model.catalogos.CatSistemaSalud;
+import io.social.ficha_social_backend.model.catalogos.CatSistemaPrevisional;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
@@ -14,14 +15,17 @@ import java.time.LocalDate;
 public class PersonaRef {
 
     @Id
-    @Column(name = "pers_cod", length = 20)
-    private String persCod;
-
     @Column(nullable = false, length = 15)
     private String rut;
 
-    @Column(name = "nombre_completo", nullable = false)
-    private String nombreCompleto;
+    @Column(nullable = false)
+    private String nombres;
+
+    @Column(name = "apellido_paterno", nullable = false)
+    private String apellidoPaterno;
+
+    @Column(name = "apellido_materno")
+    private String apellidoMaterno;
 
     private String sexo;
 
@@ -50,6 +54,10 @@ public class PersonaRef {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_sistema_salud")
     private CatSistemaSalud sistemaSalud;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_sistema_prev")
+    private CatSistemaPrevisional sistemaPrevisional;
 
     @Column(name = "updated_at")
     private java.time.LocalDateTime updatedAt;

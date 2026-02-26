@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { CatalogService } from '../../services/catalog.service';
@@ -23,18 +23,22 @@ export class FichaFormComponent implements OnInit {
   seguros: any[] = [];
   estadosEconomicos: any[] = [];
   rangosPago: any[] = [];
+  sistemasPrevisionales: any[] = [];
+  tiposPropiedad: any[] = [];
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly catalogService: CatalogService,
-    private readonly fichaService: FichaService
+    private readonly fichaService: FichaService,
+    private readonly cdr: ChangeDetectorRef
   ) {
     // Estructura completa del Formulario Reactivo
     this.fichaForm = this.fb.group({
       persona: this.fb.group({
-        persCod: [''],
         rut: ['', Validators.required],
-        nombreCompleto: ['', Validators.required],
+        nombres: ['', Validators.required],
+        apellidoPaterno: ['', Validators.required],
+        apellidoMaterno: [''],
         sexo: [''],
         fechaNacimiento: [''],
         grado: [''],
@@ -43,7 +47,8 @@ export class FichaFormComponent implements OnInit {
         idRegion: [''],
         idComuna: [''],
         idEstadoCivil: [''],
-        idSistemaSalud: ['']
+        idSistemaSalud: [''],
+        idSistemaPrev: ['']
       }),
       datosComplementarios: this.fb.group({
         puebloOriginario: [false],
@@ -64,6 +69,7 @@ export class FichaFormComponent implements OnInit {
         idEstadoEconomico: ['']
       }),
       vivienda: this.fb.group({
+        domicilioTexto: [''],
         nHabitantes: [0],
         nBanos: [0],
         nHabitaciones: [0],
@@ -77,7 +83,7 @@ export class FichaFormComponent implements OnInit {
         idRangoIngresoComp: [''],
         participaInversiones: [false],
         participaEmpresas: [false],
-        bienesMuebles: this.fb.array([]),
+        bienesInmuebles: this.fb.array([]),
         vehiculos: this.fb.array([])
       })
     });
@@ -88,8 +94,8 @@ export class FichaFormComponent implements OnInit {
     return this.fichaForm.get('grupoFamiliar') as FormArray;
   }
 
-  get bienesMuebles(): FormArray {
-    return this.fichaForm.get('patrimonio.bienesMuebles') as FormArray;
+  get bienesInmuebles(): FormArray {
+    return this.fichaForm.get('patrimonio.bienesInmuebles') as FormArray;
   }
 
   get vehiculos(): FormArray {
@@ -105,23 +111,35 @@ export class FichaFormComponent implements OnInit {
   addMiembro(): void {
     const miembro = this.fb.group({
       rut: [''],
-      nombre: [''],
+      nombres: [''],
+      apellidoPaterno: [''],
+      apellidoMaterno: [''],
+      fechaNacimiento: [''],
       idParentesco: [''],
-      esCarga: [false],
       idSistemaSalud: [''],
+      idNivelEducacional: [''],
+      idRangoAporte: [''],
+      idRangoSeguroComp: [''],
+      esCarga: [false],
       viveEnDomicilio: [true],
-      idEstadoCivil: ['']
+      poseeSeguroComp: [false],
+      enfermedadDiscapacidad: [false],
+      aportaHogar: [false],
+      montoAporte: [0]
     });
     this.grupoFamiliar.push(miembro);
   }
 
-  addBienMueble(): void {
+  addBienInmueble(): void {
     const bien = this.fb.group({
-      idTipoPropiedad: [''],
+      idTipoVivienda: [''],
+      idRegion: [''],
       idComuna: [''],
-      estaPagada: [false]
+      direccion: ['', Validators.required],
+      idEstadoPropiedad: [''],
+      comunasRow: [[]]
     });
-    this.bienesMuebles.push(bien);
+    this.bienesInmuebles.push(bien);
   }
 
   addVehiculo(): void {
@@ -147,6 +165,8 @@ export class FichaFormComponent implements OnInit {
     this.catalogService.getNiveles().subscribe((data: any[]) => this.nivelesEdu = data);
     this.catalogService.getRangosPago().subscribe((data: any[]) => this.rangosPago = data);
     this.catalogService.getEstadosEconomicos().subscribe((data: any[]) => this.estadosEconomicos = data);
+    this.catalogService.getSistemasPrevisionales().subscribe((data: any[]) => this.sistemasPrevisionales = data);
+    this.catalogService.getTiposPropiedad().subscribe((data: any[]) => this.tiposPropiedad = data);
   }
 
   onRegionChange(event: Event): void {
@@ -156,6 +176,18 @@ export class FichaFormComponent implements OnInit {
       this.catalogService.getComunas(regionId).subscribe((data: any[]) => this.comunas = data);
     } else {
       this.comunas = [];
+    }
+  }
+
+  onRegionChangeRow(index: number): void {
+    const row = this.bienesInmuebles.at(index);
+    const regionId = Number(row.get('idRegion')?.value);
+    if (regionId) {
+      this.catalogService.getComunas(regionId).subscribe(data => {
+        (row.get('comunasRow') as any)?.setValue(data);
+      });
+    } else {
+      (row.get('comunasRow') as any)?.setValue([]);
     }
   }
 
@@ -182,78 +214,84 @@ export class FichaFormComponent implements OnInit {
   }
 
   private prepararDatosParaEnvio(formValue: any): any {
-    const ficha = { ...formValue };
+    const ficha = JSON.parse(JSON.stringify(formValue));
 
     // Transformar Datos Complementarios
     if (ficha.datosComplementarios) {
       const dc = ficha.datosComplementarios;
 
-      // Mapeo de Rango Pago Pensión
-      if (dc.idRangoPagoPension) {
-        dc.rangoPagoPension = { idRangoPago: Number(dc.idRangoPagoPension) };
-      }
+      if (dc.idRangoPagoPension) dc.rangoPagoPension = { idRangoPago: Number(dc.idRangoPagoPension) };
       delete dc.idRangoPagoPension;
 
-      // Mapeo de Rango Seguro Salud
-      if (dc.idRangoSeguroSalud) {
-        dc.rangoSeguroSalud = { idRangoPago: Number(dc.idRangoSeguroSalud) };
-      }
+      if (dc.idRangoSeguroSalud) dc.rangoSeguroSalud = { idRangoPago: Number(dc.idRangoSeguroSalud) };
       delete dc.idRangoSeguroSalud;
 
-      // Mapeo de Rango Pago Educación
-      if (dc.idRangoPagoEducacion) {
-        dc.rangoPagoEducacion = { idRangoPago: Number(dc.idRangoPagoEducacion) };
-      }
+      if (dc.idRangoPagoEducacion) dc.rangoPagoEducacion = { idRangoPago: Number(dc.idRangoPagoEducacion) };
       delete dc.idRangoPagoEducacion;
 
-      // Mapeo de Nivel Educacional
-      if (dc.idNivelEducacional) {
-        dc.nivelEducacional = { idNivelEducacional: Number(dc.idNivelEducacional) };
-      }
+      if (dc.idNivelEducacional) dc.nivelEducacional = { idNivelEducacional: Number(dc.idNivelEducacional) };
       delete dc.idNivelEducacional;
 
-      // Mapeo de Estado Económico
-      if (dc.idEstadoEconomico) {
-        dc.estadoEconomico = { idEstadoEconomico: Number(dc.idEstadoEconomico) };
-      }
+      if (dc.idEstadoEconomico) dc.estadoEconomico = { idEstadoEconomico: Number(dc.idEstadoEconomico) };
       delete dc.idEstadoEconomico;
-
-      // Limpieza de campo antiguo si existiera
-      delete dc.idSeguroComp;
     }
 
-    // Transformar Persona (si fuera necesario, aunque ya lo manejamos como objeto a veces)
-    // Pero el formulario usa 'persona' group con campos planos
+    // Transformar Persona
     if (ficha.persona) {
       const p = ficha.persona;
       if (p.idRegion) p.region = { idRegion: Number(p.idRegion) };
       if (p.idComuna) p.comuna = { idComuna: Number(p.idComuna) };
       if (p.idEstadoCivil) p.estadoCivil = { idEstadoCivil: Number(p.idEstadoCivil) };
       if (p.idSistemaSalud) p.sistemaSalud = { idSistemaSalud: Number(p.idSistemaSalud) };
+      if (p.idSistemaPrev) p.sistemaPrevisional = { idSistemaPrev: Number(p.idSistemaPrev) };
 
-      // Limpiamos los IDs sueltos si queremos, o el backend los ignora
       delete p.idRegion;
       delete p.idComuna;
       delete p.idEstadoCivil;
       delete p.idSistemaSalud;
+      delete p.idSistemaPrev;
     }
 
     // Transformar Grupo Familiar
     if (ficha.grupoFamiliar && Array.isArray(ficha.grupoFamiliar)) {
       ficha.grupoFamiliar = ficha.grupoFamiliar.map((m: any) => {
-        if (m.idParentesco) m.parentesco = { idParentesco: Number(m.idParentesco) }; // Ajustar nombre entidad si es necesario
-        // Ojo: CatParentesco backend? Falta revisar nombre exacto entidad.
-        // Asumiendo que backend espera 'parentesco' con id.
+        if (m.idParentesco) m.parentesco = { idParentesco: Number(m.idParentesco) };
         delete m.idParentesco;
-
-        if (m.idEstadoCivil) m.estadoCivil = { idEstadoCivil: Number(m.idEstadoCivil) };
-        delete m.idEstadoCivil;
 
         if (m.idSistemaSalud) m.sistemaSalud = { idSistemaSalud: Number(m.idSistemaSalud) };
         delete m.idSistemaSalud;
 
+        if (m.idNivelEducacional) m.nivelEducacional = { idNivelEducacional: Number(m.idNivelEducacional) };
+        delete m.idNivelEducacional;
+
+        if (m.idRangoAporte) m.rangoAporte = { idRangoPago: Number(m.idRangoAporte) };
+        delete m.idRangoAporte;
+
+        if (m.idRangoSeguroComp) m.rangoSeguroComp = { idRangoPago: Number(m.idRangoSeguroComp) };
+        delete m.idRangoSeguroComp;
+
         return m;
       });
+    }
+
+    // Transformar Bienes Inmuebles
+    if (ficha.patrimonio && ficha.patrimonio.bienesInmuebles) {
+      ficha.bienesInmuebles = ficha.patrimonio.bienesInmuebles.map((i: any) => {
+        const item = { ...i };
+        if (item.idTipoVivienda) item.tipoVivienda = { idTipoPropiedad: Number(item.idTipoVivienda) };
+        if (item.idRegion) item.region = { idRegion: Number(item.idRegion) };
+        if (item.idComuna) item.comuna = { idComuna: Number(item.idComuna) };
+        if (item.idEstadoPropiedad) item.estadoPropiedad = { idEstadoPropiedad: Number(item.idEstadoPropiedad) };
+        if (item.direccion) item.direccion = item.direccion.toUpperCase();
+
+        delete item.idTipoVivienda;
+        delete item.idRegion;
+        delete item.idComuna;
+        delete item.idEstadoPropiedad;
+        delete item.comunasRow;
+        return item;
+      });
+      delete ficha.patrimonio.bienesInmuebles;
     }
 
     return ficha;
@@ -269,51 +307,160 @@ export class FichaFormComponent implements OnInit {
     });
   }
 
-  // Propiedad para almacenar los datos de la persona encontrados
   personaData: any = null;
 
   buscarPersona(): void {
     const rut = this.fichaForm.get('persona.rut')?.value;
-
     if (rut && rut.length > 7) {
       this.fichaService.getPersonaByRut(rut).subscribe({
         next: (persona) => {
-          this.personaData = persona; // Guardamos la data completa para mostrar en HTML
-
-          // Actualizamos el formulario con los IDs para mantener la validez al guardar
+          this.personaData = persona;
           this.fichaForm.get('persona')?.patchValue({
-            persCod: persona.persCod,
-            rut: persona.rut, // Aseguramos que el RUT quede seteadp
-            nombreCompleto: persona.nombreCompleto,
+            rut: persona.rut,
+            nombres: persona.nombres,
+            apellidoPaterno: persona.apellidoPaterno,
+            apellidoMaterno: persona.apellidoMaterno,
             sexo: persona.sexo,
             fechaNacimiento: persona.fechaNacimiento,
-            grado: persona.grado,
-            categoria: persona.categoria,
             domicilio: persona.domicilio,
-            idRegion: persona.region?.idRegion, // Accedemos al objeto anidado
-            idComuna: persona.comuna?.idComuna, // Asumiendo que viene anidado o null
+            grado: persona.grado || '',
+            categoria: persona.categoria || '',
+            idRegion: persona.region?.idRegion,
+            idComuna: persona.comuna?.idComuna,
             idEstadoCivil: persona.estadoCivil?.idEstadoCivil,
-            idSistemaSalud: persona.sistemaSalud?.idSistemaSalud
+            idSistemaSalud: persona.sistemaSalud?.idSistemaSalud,
+            idSistemaPrev: persona.sistemaPrevisional?.idSistemaPrev || persona.sistemaPrevisional?.idSistemaPrevisional
+          });
+
+          this.fichaForm.get('vivienda')?.patchValue({
+            domicilioTexto: persona.domicilio
           });
 
           if (persona.region?.idRegion) {
             this.cargarComunasPorRegion(persona.region.idRegion);
           }
 
-          console.log('Persona encontrada:', this.personaData);
+          this.cargarFichaCompleta(rut);
+          this.cdr.detectChanges();
         },
-        error: () => {
-          console.warn('Persona no encontrada');
+        error: (err) => {
           this.personaData = null;
-          // Resetear campos si es necesario, pero mantener RUT
+          this.cdr.detectChanges();
         }
       });
     }
   }
 
-  // Método auxiliar para re-usar la carga de comunas
   private cargarComunasPorRegion(regionId: number): void {
     this.catalogService.getComunas(regionId).subscribe(data => this.comunas = data);
   }
 
+  private cargarFichaCompleta(rut: string): void {
+    this.fichaService.getFichaByPersonaRut(rut).subscribe({
+      next: (ficha) => {
+        if (ficha.grupoFamiliar && Array.isArray(ficha.grupoFamiliar)) {
+          this.grupoFamiliar.clear();
+          ficha.grupoFamiliar.forEach((m: any) => {
+            const miembroGroup = this.fb.group({
+              rut: [m.rut],
+              nombres: [m.nombres],
+              apellidoPaterno: [m.apellidoPaterno],
+              apellidoMaterno: [m.apellidoMaterno],
+              sexo: [m.sexo],
+              fechaNacimiento: [m.fechaNacimiento],
+              idParentesco: [m.parentesco?.idParentesco],
+              parentescoName: [m.parentesco?.nombre || this.parentescoRepoName(m.parentesco?.idParentesco)],
+              idSistemaSalud: [m.sistemaSalud?.idSistemaSalud],
+              sistemaSaludName: [m.sistemaSalud?.nombre || this.saludRepoName(m.sistemaSalud?.idSistemaSalud)],
+              idNivelEducacional: [m.nivelEducacional?.idNivelEducacional],
+              idRangoAporte: [m.rangoAporte?.idRangoPago],
+              idRangoSeguroComp: [m.rangoSeguroComp?.idRangoPago],
+              esCarga: [m.esCarga || false],
+              viveEnDomicilio: [m.viveEnDomicilio || false],
+              poseeSeguroComp: [m.poseeSeguroComp || false],
+              enfermedadDiscapacidad: [m.enfermedadDiscapacidad || false],
+              aportaHogar: [m.aportaHogar || false],
+              montoAporte: [m.montoAporte || 0]
+            });
+            this.grupoFamiliar.push(miembroGroup);
+          });
+        }
+
+        if (ficha.datosComplementarios) {
+          const dc = ficha.datosComplementarios;
+          this.fichaForm.get('datosComplementarios')?.patchValue({
+            puebloOriginario: dc.puebloOriginario,
+            enfermedadBase: dc.enfermedadBase,
+            cursaEstudiosParticulares: dc.cursaEstudiosParticulares,
+            discapacidad: dc.discapacidad,
+            pagaPensionAlimentos: dc.pagaPensionAlimentos,
+            idRangoPagoPension: dc.rangoPagoPension?.idRangoPago,
+            tieneSeguroSalud: dc.tieneSeguroSalud,
+            idRangoSeguroSalud: dc.rangoSeguroSalud?.idRangoPago,
+            pagoEnEducacion: dc.pagoEnEducacion,
+            idRangoPagoEducacion: dc.rangoPagoEducacion?.idRangoPago,
+            idNivelEducacional: dc.nivelEducacional?.idNivelEducacional,
+            idEstadoEconomico: dc.estadoEconomico?.idEstadoEconomico
+          });
+        }
+
+        if (ficha.vivienda) {
+          this.fichaForm.get('vivienda')?.patchValue({
+            domicilioTexto: ficha.vivienda.domicilioTexto,
+            nHabitantes: ficha.vivienda.nHabitantes,
+            nBanos: ficha.vivienda.nBanos,
+            nHabitaciones: ficha.vivienda.nHabitaciones,
+            mt2Construidos: ficha.vivienda.mt2Construidos
+          });
+        }
+
+        if (ficha.bienesInmuebles && Array.isArray(ficha.bienesInmuebles)) {
+          this.bienesInmuebles.clear();
+          ficha.bienesInmuebles.forEach((i: any) => {
+            const row = this.fb.group({
+              idTipoVivienda: [i.tipoVivienda?.idTipoPropiedad],
+              idRegion: [i.region?.idRegion],
+              idComuna: [i.comuna?.idComuna],
+              direccion: [i.direccion],
+              idEstadoPropiedad: [i.estadoPropiedad?.idEstadoEconomico],
+              comunasRow: [[]]
+            });
+            this.bienesInmuebles.push(row);
+            if (i.region?.idRegion) {
+              this.catalogService.getComunas(i.region.idRegion).subscribe(data => {
+                (row.get('comunasRow') as any)?.setValue(data);
+              });
+            }
+          });
+        }
+      }
+    });
+  }
+
+  private parentescoRepoName(id: any): string {
+    if (!id) return '---';
+    const names: any = { 1: 'Padre/Madre', 2: 'Cónyuge', 3: 'Hijo/a', 4: 'Otro' };
+    return names[id] || '---';
+  }
+
+  private saludRepoName(id: any): string {
+    if (!id) return '---';
+    const s = this.sistemasSalud.find(x => x.idSistemaSalud == id);
+    return s ? s.nombre : '---';
+  }
+
+  onRutInput(event: any): void {
+    let value = event.target.value.replace(/\./g, '').replace(/-/g, '');
+    if (value.length > 9) value = value.substring(0, 9);
+    if (value.length > 1) {
+      const cuerpo = value.slice(0, -1);
+      const dv = value.slice(-1).toUpperCase();
+      let formatted = '';
+      for (let i = cuerpo.length - 1, j = 0; i >= 0; i--, j++) {
+        formatted = cuerpo.charAt(i) + (j > 0 && j % 3 === 0 ? '.' : '') + formatted;
+      }
+      value = formatted + '-' + dv;
+    }
+    this.fichaForm.get('persona.rut')?.setValue(value, { emitEvent: false });
+  }
 }

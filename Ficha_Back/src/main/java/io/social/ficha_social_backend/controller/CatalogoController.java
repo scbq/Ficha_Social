@@ -21,6 +21,8 @@ public class CatalogoController {
     private final CatParentescoRepository parentescoRepo;
     private final CatRangoPagoRepository rangoPagoRepo;
     private final CatEstadoEconomicoRepository estadoEconomicoRepo;
+    private final CatSistemaPrevisionalRepository previsionalRepo;
+    private final CatTipoPropiedadRepository tipoPropiedadRepo;
 
     @GetMapping("/regiones")
     public List<CatRegion> getRegiones() {
@@ -55,5 +57,10 @@ public class CatalogoController {
     @GetMapping("/estado-economico")
     public List<CatEstadoEconomico> getEstadosEconomicos() {
         return estadoEconomicoRepo.findAll();
+    }
+
+    @GetMapping("/sistema-previsional")
+    public List<CatSistemaPrevisional> getSistemasPrevisionales() {
+        return previsionalRepo.findAll();
     }
 }

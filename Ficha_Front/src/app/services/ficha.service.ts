@@ -20,6 +20,10 @@ export class FichaService {
   }
 
   getPersonaByRut(rut: string): Observable<any> {
-  return this.http.get<any>(`/api/personas/rut/${rut}`);
-}
+    return this.http.get<any>(`/api/personas/rut/${rut}`);
+  }
+
+  getFichaByPersonaRut(rut: string): Observable<FichaSocial> {
+    return this.http.get<FichaSocial>(`${this.apiUrl}/persona/${rut}`);
+  }
 }

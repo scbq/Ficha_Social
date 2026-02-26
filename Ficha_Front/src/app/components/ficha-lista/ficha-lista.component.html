@@ -24,7 +24,7 @@
       <tr *ngFor="let ficha of fichas">
         <td>{{ ficha.idFicha }}</td>
         <td>{{ ficha.persona.rut }}</td>
-        <td>{{ ficha.persona.nombreCompleto }}</td>
+        <td>{{ ficha.persona.nombres + ' ' + ficha.persona.apellidoPaterno + (ficha.persona.apellidoMaterno ? ' ' + ficha.persona.apellidoMaterno : '') }}</td>
         <td>{{ ficha.creadaEn | date: "dd/MM/yyyy HH:mm" }}</td>
         <td>
           <button class="btn btn-primary btn-sm">Ver Detalle</button>

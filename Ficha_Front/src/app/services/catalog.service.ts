@@ -23,4 +23,12 @@ export class CatalogService {
   getEstadosEconomicos(): Observable<any[]> {
     return this.http.get<any[]>('/api/catalogos/estado-economico');
   }
+
+  getSistemasPrevisionales(): Observable<any[]> {
+    return this.http.get<any[]>('/api/catalogos/sistema-previsional');
+  }
+
+  getTiposPropiedad(): Observable<any[]> {
+    return this.http.get<any[]>('/api/catalogos/tipo-propiedad');
+  }
 }

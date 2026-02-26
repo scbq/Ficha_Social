@@ -1,3 +1,22 @@
+// Estilos generales para las tarjetas
+.card {
+    border-radius: 12px !important; // Bordes más redondeados
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+// Estilo específico para la sección de Datos Personales
+.card-personal-bg {
+    background-color: #f0f7ff !important; // Fondo celeste muy suave
+    border: 1px solid #bcd0f7 !important;
+
+    .card-header,
+    .card-body {
+        background-color: transparent !important;
+    }
+}
+
 // Estilos específicos para la Ficha Social
 
 .label-bold {
@@ -8,7 +27,8 @@
 }
 
 .header-blue {
-    background-color: #26388E; /* Portal Primary Color */
+    background-color: #26388E;
+    /* Portal Primary Color */
     color: white;
     padding: 8px 12px;
     border-radius: 6px 6px 0 0;
@@ -70,4 +90,47 @@ input.form-control-sm,
 select.form-select-sm {
     border-radius: 4px;
     border: 1px solid #c8d1e0;
+}
+
+// Utility for smaller switches
+.scale-75 {
+    transform: scale(0.75);
+}
+
+.scale-80 {
+    transform: scale(0.8);
+}
+
+// Ensure cards in Grupo Familiar look distinct
+.grupo-familiar-card {
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+}
+
+// Checkbox and Switch Improvements
+.form-check-input {
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out !important;
+
+    &:checked {
+        background-color: #26388E !important;
+        border-color: #26388E !important;
+        filter: saturate(1.5) brightness(1.1); // High contrast
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(38, 56, 142, 0.25) !important;
+        border-color: #26388E !important;
+    }
+}
+
+.form-check-label {
+    transition: color 0.1s ease-in-out;
+
+    &.text-primary {
+        color: #26388E !important;
+    }
 }

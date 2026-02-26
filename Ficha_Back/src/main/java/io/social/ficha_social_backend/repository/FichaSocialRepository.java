@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FichaSocialRepository extends JpaRepository<FichaSocial, Long> {
+    java.util.Optional<FichaSocial> findByPersonaRut(String rut);
 }

@@ -1,6 +1,7 @@
 package io.social.ficha_social_backend.model;
 
 import io.social.ficha_social_backend.model.catalogos.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class FichaDatosComplementarios {
     @OneToOne
     @MapsId
     @JoinColumn(name = "id_ficha")
+    @JsonIgnore
     private FichaSocial fichaSocial;
 
     private boolean puebloOriginario;

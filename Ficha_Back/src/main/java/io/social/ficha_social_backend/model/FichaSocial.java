@@ -16,7 +16,7 @@ public class FichaSocial {
     private Long idFicha;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "pers_cod", referencedColumnName = "pers_cod", unique = true)
+    @JoinColumn(name = "persona_rut", unique = true)
     private PersonaRef persona; // Ahora sí debería reconocerlo sin errores
 
     @Column(name = "creada_en", updatable = false)
@@ -41,4 +41,10 @@ public class FichaSocial {
 
     @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<FichaGrupoFamiliarMiembro> grupoFamiliar;
+
+    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private FichaVivienda vivienda;
+
+    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<FichaPatrimonioInmueble> bienesInmuebles;
 }
