@@ -18,7 +18,7 @@ public class PersonaController {
 
     @GetMapping("/rut/{rut}")
     public ResponseEntity<PersonaRef> buscarPorRut(@PathVariable String rut) {
-        return personaRepo.findByRut(rut)
+        return personaRepo.findByRutNormalized(rut)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

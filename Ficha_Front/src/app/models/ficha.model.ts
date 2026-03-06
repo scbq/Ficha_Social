@@ -62,7 +62,23 @@ export interface FichaPatrimonioInmueble {
   region?: { idRegion: number; nombre?: string };
   comuna?: { idComuna: number; nombre?: string };
   direccion: string;
-  estadoPropiedad?: { idEstadoPropiedad: number; nombre?: string };
+  estadoPropiedad?: { idEstadoEconomico: number; nombre?: string };
+}
+
+export interface FichaPatrimonioVehiculo {
+  idVehiculo?: number;
+  tipoVehiculo?: { id: number; descripcion?: string };
+  marca?: { id: number; descripcion?: string };
+  modelo?: { id: number; descripcion?: string };
+  anio: number;
+  patente: string;
+  pagado: boolean;
+}
+
+export interface FichaIngresos {
+  ingresoLiquidoAnual: number;
+  ingresoAporteGrupoFamiliar: number;
+  ingresoComplementario: number;
 }
 
 export interface FichaSocial {
@@ -74,4 +90,6 @@ export interface FichaSocial {
   grupoFamiliar?: GrupoFamiliarMiembro[];
   vivienda?: FichaVivienda;
   bienesInmuebles?: FichaPatrimonioInmueble[];
+  vehiculos?: FichaPatrimonioVehiculo[];
+  ingresos?: FichaIngresos;
 }

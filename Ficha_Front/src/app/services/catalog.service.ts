@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 export class CatalogService {
   constructor(private http: HttpClient) { }
 
-  // Ajusta estas rutas a tus endpoints del backend
   getRegiones(): Observable<any[]> { return this.http.get<any[]>('/api/catalogos/regiones'); }
   getComunas(regionId: number): Observable<any[]> { return this.http.get<any[]>(`/api/catalogos/comunas/${regionId}`); }
   getEstadosCiviles(): Observable<any[]> { return this.http.get<any[]>('/api/catalogos/estado-civil'); }
@@ -30,5 +29,17 @@ export class CatalogService {
 
   getTiposPropiedad(): Observable<any[]> {
     return this.http.get<any[]>('/api/catalogos/tipo-propiedad');
+  }
+
+  getMarcasVehiculo(): Observable<any[]> {
+    return this.http.get<any[]>('/api/catalogos/marcas-vehiculo');
+  }
+
+  getModelosVehiculo(): Observable<any[]> {
+    return this.http.get<any[]>('/api/catalogos/modelos-vehiculo');
+  }
+
+  getTiposVehiculo(): Observable<any[]> {
+    return this.http.get<any[]>('/api/catalogos/tipos-vehiculo');
   }
 }

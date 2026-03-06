@@ -2,10 +2,13 @@ package io.social.ficha_social_backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ficha_social")
 public class FichaSocial {
@@ -13,11 +16,12 @@ public class FichaSocial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ficha")
+    @EqualsAndHashCode.Include
     private Long idFicha;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "persona_rut", unique = true)
-    private PersonaRef persona; // Ahora sí debería reconocerlo sin errores
+    private PersonaRef persona;
 
     @Column(name = "creada_en", updatable = false)
     private LocalDateTime creadaEn;
@@ -40,11 +44,17 @@ public class FichaSocial {
     private FichaDatosComplementarios datosComplementarios;
 
     @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<FichaGrupoFamiliarMiembro> grupoFamiliar;
+    private Set<FichaGrupoFamiliarMiembro> grupoFamiliar;
 
     @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private FichaVivienda vivienda;
 
     @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<FichaPatrimonioInmueble> bienesInmuebles;
+    private Set<FichaPatrimonioInmueble> bienesInmuebles;
+
+    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<FichaPatrimonioVehiculo> vehiculos;
+
+    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private FichaIngresos ingresos;
 }

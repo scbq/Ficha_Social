@@ -5,15 +5,18 @@ import io.social.ficha_social_backend.model.catalogos.CatRangoPago;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ficha_grupo_familiar_miembro")
 public class FichaGrupoFamiliarMiembro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long idMiembro;
 
     @ManyToOne(fetch = FetchType.LAZY)

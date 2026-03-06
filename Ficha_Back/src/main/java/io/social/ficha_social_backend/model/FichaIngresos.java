@@ -21,13 +21,11 @@ public class FichaIngresos {
 
     private BigDecimal ingresoLiquidoAnual;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_rango_aporte_grupo_familiar")
-    private CatRangoPago rangoAporteGrupoFamiliar;
+    @Column(name = "ingreso_aporte_grupo_familiar")
+    private BigDecimal ingresoAporteGrupoFamiliar;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_rango_ingreso_complementario")
-    private CatRangoPago rangoIngresoComplementario;
+    @Column(name = "ingreso_complementario")
+    private BigDecimal ingresoComplementario;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

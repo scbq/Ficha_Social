@@ -9,4 +9,7 @@ import java.util.Optional;
 public interface PersonaRefRepository extends JpaRepository<PersonaRef, String> {
 
     Optional<PersonaRef> findByRut(String rut);
+
+    @org.springframework.data.jpa.repository.Query("SELECT p FROM PersonaRef p WHERE REPLACE(REPLACE(p.rut, '.', ''), '-', '') = :rut")
+    Optional<PersonaRef> findByRutNormalized(String rut);
 }

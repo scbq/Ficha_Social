@@ -23,6 +23,9 @@ public class CatalogoController {
     private final CatEstadoEconomicoRepository estadoEconomicoRepo;
     private final CatSistemaPrevisionalRepository previsionalRepo;
     private final CatTipoPropiedadRepository tipoPropiedadRepo;
+    private final CatVehiculoMarcaRepository marcaRepo;
+    private final CatVehiculoModeloRepository modeloRepo;
+    private final CatVehiculoTipoRepository tipoVehiculoRepo;
 
     @GetMapping("/regiones")
     public List<CatRegion> getRegiones() {
@@ -62,5 +65,25 @@ public class CatalogoController {
     @GetMapping("/sistema-previsional")
     public List<CatSistemaPrevisional> getSistemasPrevisionales() {
         return previsionalRepo.findAll();
+    }
+
+    @GetMapping("/tipo-propiedad")
+    public List<CatTipoPropiedad> getTiposPropiedad() {
+        return tipoPropiedadRepo.findAll();
+    }
+
+    @GetMapping("/marcas-vehiculo")
+    public List<CatVehiculoMarca> getMarcasVehiculo() {
+        return marcaRepo.findAll();
+    }
+
+    @GetMapping("/modelos-vehiculo")
+    public List<CatVehiculoModelo> getModelosVehiculo() {
+        return modeloRepo.findAll();
+    }
+
+    @GetMapping("/tipos-vehiculo")
+    public List<CatVehiculoTipo> getTiposVehiculo() {
+        return tipoVehiculoRepo.findAll();
     }
 }

@@ -26,6 +26,23 @@
     margin-bottom: 2px;
 }
 
+.title-card {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; // Espacio entre el texto y la línea
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #ffa726, #e65100); // Degradado naranja
+        border-radius: 2px;
+    }
+}
+
 .header-blue {
     background-color: #26388E;
     /* Portal Primary Color */
@@ -55,11 +72,17 @@
     border-top: none;
     border-radius: 0 0 8px 8px;
     padding: 8px;
-    background: white;
+    padding-right: 30px; // Make space for the icon
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2328a745' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='7 7 12 12 17 7'%3E%3C/polyline%3E%3Cpolyline points='7 13 12 18 17 13'%3E%3C/polyline%3E%3C/svg%3E") no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
     text-align: center;
     color: #26388E;
     width: 100%;
     font-weight: 500;
+    appearance: none; // Hide default arrow
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .table-blue {
@@ -116,14 +139,14 @@ select.form-select-sm {
     transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out !important;
 
     &:checked {
-        background-color: #26388E !important;
-        border-color: #26388E !important;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
         filter: saturate(1.5) brightness(1.1); // High contrast
     }
 
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba(38, 56, 142, 0.25) !important;
-        border-color: #26388E !important;
+        box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25) !important;
+        border-color: #28a745 !important;
     }
 }
 
@@ -133,4 +156,11 @@ select.form-select-sm {
     &.text-primary {
         color: #26388E !important;
     }
+}
+
+.clip-circle-new {
+    clip-path: circle(50% at 50% 50%);
+    border: 2px solid #26388E;
+    background-color: #f8fafc;
+    object-fit: cover;
 }
