@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Slf4j
@@ -207,7 +206,6 @@ public class DataInitializer implements CommandLineRunner {
             CatNivelEducacional media = nivelEduRepo.findById((short) 2).orElse(null);
             CatNivelEducacional univ = nivelEduRepo.findById((short) 4).orElse(null);
 
-            CatRangoPago tramoA = rangoRepo.findById(1L).orElse(null);
             CatRangoPago tramoB = rangoRepo.findById(2L).orElse(null);
 
             // Miembro 1: Carlos Andrés Rojas Mery (Cónyuge)

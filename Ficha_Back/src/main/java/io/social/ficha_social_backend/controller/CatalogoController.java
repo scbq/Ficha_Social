@@ -18,7 +18,6 @@ public class CatalogoController {
     private final CatEstadoCivilRepository estadoCivilRepo;
     private final CatSistemaSaludRepository saludRepo;
     private final CatNivelEducacionalRepository nivelRepo;
-    private final CatParentescoRepository parentescoRepo;
     private final CatRangoPagoRepository rangoPagoRepo;
     private final CatEstadoEconomicoRepository estadoEconomicoRepo;
     private final CatSistemaPrevisionalRepository previsionalRepo;

@@ -810,10 +810,10 @@ img.clip-circle-mini {clip-path: circle(25px at 25px 25px); image-orientation: n
 
 
 /****************************
-           FOOTER
-*****************************/
+            FOOTER
+****************************/
 
-footer {
+footer:not(.modern-footer) {
     color: rgb(130, 145, 154);
     background-color: #cfd6dd;
     font-size: 12px;

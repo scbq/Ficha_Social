@@ -1,0 +1,369 @@
+/* =============================================
+   FOOTER MODERNO - Ficha Social
+   ============================================= */
+
+// Variables de colores
+$footer-gradient-start: #1a237e;
+$footer-gradient-end: #3949ab;
+$footer-accent: #F6C979;
+$footer-text-light: rgba(255, 255, 255, 0.85);
+$footer-text-muted: rgba(255, 255, 255, 0.6);
+$footer-link-hover: #F6C979;
+
+.modern-footer {
+  background: linear-gradient(135deg, $footer-gradient-start 0%, $footer-gradient-end 100%);
+  color: $footer-text-light;
+  position: relative;
+  overflow: hidden;
+
+  // Efecto decorativo en la parte superior
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $footer-accent, darken($footer-accent, 10%), $footer-accent);
+  }
+
+  // Contenedor principal
+  .footer-main {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Logo y marca
+  .footer-brand {
+    display: flex;
+    align-items: center;
+
+    .brand-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 2rem;
+        color: $footer-accent;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .brand-title {
+      font-family: 'Exo-Bold', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+
+    .brand-subtitle {
+      font-family: 'Roboto-Light', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  // Descripción
+  .footer-description {
+    font-family: 'Roboto-Light', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $footer-text-muted;
+    margin-bottom: 1.5rem;
+  }
+
+  // Redes sociales
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+
+      &:hover {
+        background: $footer-accent;
+        border-color: $footer-accent;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba($footer-accent, 0.3);
+
+        i {
+          color: $footer-gradient-start;
+        }
+      }
+
+      i {
+        transition: color 0.3s ease;
+      }
+    }
+  }
+
+  // Encabezados de secciones
+  .footer-heading {
+    font-family: 'Exo-SemiBold', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+
+    // Línea decorativa bajo el título
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: $footer-accent;
+      border-radius: 2px;
+    }
+  }
+
+  // Enlaces de navegación
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.75rem;
+
+      a {
+        color: $footer-text-light;
+        text-decoration: none;
+        font-family: 'Roboto-Light', sans-serif;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+
+        i {
+          font-size: 0.75rem;
+          margin-right: 0.5rem;
+          color: $footer-text-muted;
+          transition: all 0.3s ease;
+        }
+
+        &:hover {
+          color: $footer-accent;
+          transform: translateX(5px);
+
+          i {
+            color: $footer-accent;
+            margin-right: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Información de contacto
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      font-family: 'Roboto-Light', sans-serif;
+      font-size: 0.95rem;
+
+      i {
+        font-size: 1.1rem;
+        color: $footer-accent;
+        margin-right: 1rem;
+        margin-top: 0.2rem;
+        flex-shrink: 0;
+      }
+
+      span {
+        color: $footer-text-light;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Barra inferior de copyright
+  .footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+
+    .copyright {
+      font-family: 'Roboto-Light', sans-serif;
+      font-size: 0.9rem;
+      color: $footer-text-muted;
+
+      strong {
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+
+    .developer {
+      font-family: 'Roboto-Light', sans-serif;
+      font-size: 0.9rem;
+      color: $footer-text-muted;
+
+      i {
+        margin: 0 0.25rem;
+        animation: pulse 1.5s infinite;
+      }
+    }
+  }
+}
+
+// Animación para el corazón
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+// Responsive - Tablet
+@media (max-width: 991.98px) {
+  .modern-footer {
+    .footer-brand {
+      .brand-icon {
+        width: 50px;
+        height: 50px;
+
+        i {
+          font-size: 1.75rem;
+        }
+      }
+
+      .brand-title {
+        font-size: 1.3rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.85rem;
+      }
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+
+// Responsive - Móvil
+@media (max-width: 767.98px) {
+  .modern-footer {
+    text-align: center;
+
+    .footer-brand {
+      flex-direction: column;
+      text-align: center;
+
+      .brand-icon {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .footer-heading {
+      text-align: center;
+
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .footer-links {
+      li {
+        a {
+          justify-content: center;
+
+          i {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .footer-contact {
+      li {
+        justify-content: center;
+
+        i {
+          display: none;
+        }
+      }
+    }
+
+    .footer-bottom {
+      .copyright,
+      .developer {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+// Efecto hover suave para toda la fila
+.modern-footer .row > div {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Smooth scroll
+html {
+  scroll-behavior: smooth;
+}
+
+// Transición para el contenido del footer
+.modern-footer a,
+.modern-footer li,
+.modern-footer i,
+.modern-footer p,
+.modern-footer h5,
+.modern-footer h6 {
+  transition: all 0.3s ease;
+}

@@ -2,14 +2,21 @@
   <!-- Header Card -->
   <div class="card card-ficha-personal mb-4 bg-light border-bottom">
     <div class="card-body py-2">
-      <h5 class="mb-0 text-primary" style="font-family: 'Exo-SemiBold', sans-serif;">
-        <i class="bi bi-file-earmark-person me-2"></i>Bienestar Social / Ficha Social
+      <h5
+        class="mb-0 text-primary"
+        style="font-family: &quot;Exo-SemiBold&quot;, sans-serif"
+      >
+        <i class="bi bi-file-earmark-person me-2"></i>Bienestar Social / Ficha
+        Social
       </h5>
     </div>
   </div>
 
   <!-- Datos Personales Card -->
-  <div class="card card-ficha-personal card-personal-bg mb-4" formGroupName="persona">
+  <div
+    class="card card-ficha-personal card-personal-bg mb-4"
+    formGroupName="persona"
+  >
     <div class="card-header bg-transparent border-0 pb-2">
       <h6 class="title-card text-uppercase text-secondary">DATOS PERSONALES</h6>
     </div>
@@ -18,20 +25,27 @@
         <!-- COLUMNA IZQUIERDA: FOTOGRAFÍA Y BUSCADOR -->
         <div class="col-md-3 text-center border-end">
           <div class="mb-3">
-             <!-- Portal uses clip-circle for images -->
-            <img [src]="getFotoPerfil()" alt="Avatar" class="clip-circle-new" style="width: 100px; height: 100px; object-fit: cover;" />
+            <!-- Portal uses clip-circle for images -->
+            <img
+              [src]="getFotoPerfil()"
+              alt="Avatar"
+              class="clip-circle-new"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
           </div>
           <div class="px-3">
-            <label class="label-bold small text-muted text-uppercase">RUT</label>
+            <label class="label-bold small text-muted text-uppercase"
+              >RUT</label
+            >
             <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control form-control-sm text-center fw-bold"
-                  formControlName="rut"
-                  (input)="onRutInput($event)"
-                  (blur)="buscarPersona()"
-                  placeholder="12.345.678-9"
-                />
+              <input
+                type="text"
+                class="form-control form-control-sm text-center fw-bold"
+                formControlName="rut"
+                (input)="onRutInput($event)"
+                (blur)="buscarPersona()"
+                placeholder="12.345.678-9"
+              />
               <button
                 class="btn btn-primary btn-sm"
                 type="button"
@@ -46,38 +60,68 @@
         <!-- COLUMNA CENTRAL: IDENTIDAD Y FILIACIÓN -->
         <div class="col-md-4 px-4 border-end">
           <div class="mb-3">
-            <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Nombre Completo:</span></p>
-            <div class="form-control-plaintext border-bottom ps-2 text-primary fw-bold">
-              {{ (personaData?.nombres || '') + ' ' + (personaData?.apellidoPaterno || '') + ' ' + (personaData?.apellidoMaterno || '') || '---' }}
+            <p class="mb-1">
+              <span class="label-bold small text-muted text-uppercase"
+                >Nombre Completo:</span
+              >
+            </p>
+            <div
+              class="form-control-plaintext border-bottom ps-2 text-primary fw-bold"
+            >
+              {{
+                (personaData?.nombres || "") +
+                  " " +
+                  (personaData?.apellidoPaterno || "") +
+                  " " +
+                  (personaData?.apellidoMaterno || "") || "---"
+              }}
             </div>
           </div>
 
           <div class="row g-2 mb-3">
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Sexo:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Sexo:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.sexo || '---' }}
+                {{ personaData?.sexo || "---" }}
               </div>
             </div>
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">F. Nacimiento:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >F. Nacimiento:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ (personaData?.fechaNacimiento | date:'dd/MM/yyyy') || '---' }}
+                {{
+                  (personaData?.fechaNacimiento | date: "dd/MM/yyyy") || "---"
+                }}
               </div>
             </div>
           </div>
 
           <div class="row g-2">
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Grado:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Grado:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.grado || '---' }}
+                {{ personaData?.grado || "---" }}
               </div>
             </div>
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Categoría:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Categoría:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.categoria || '---' }}
+                {{ personaData?.categoria || "---" }}
               </div>
             </div>
           </div>
@@ -87,44 +131,68 @@
         <div class="col-md-5 ps-4">
           <div class="row g-2 mb-3">
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Estado Civil:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Estado Civil:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.estadoCivil?.nombre || '---' }}
+                {{ personaData?.estadoCivil?.nombre || "---" }}
               </div>
             </div>
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Salud:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Salud:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.sistemaSalud?.nombre || '---' }}
+                {{ personaData?.sistemaSalud?.nombre || "---" }}
               </div>
             </div>
           </div>
 
           <div class="mb-3">
-            <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Sistema Previsional:</span></p>
+            <p class="mb-1">
+              <span class="label-bold small text-muted text-uppercase"
+                >Sistema Previsional:</span
+              >
+            </p>
             <div class="form-control-plaintext border-bottom ps-2">
-              {{ personaData?.sistemaPrevisional?.nombre || '---' }}
+              {{ personaData?.sistemaPrevisional?.nombre || "---" }}
             </div>
           </div>
 
           <div class="mb-3">
-            <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Domicilio:</span></p>
+            <p class="mb-1">
+              <span class="label-bold small text-muted text-uppercase"
+                >Domicilio:</span
+              >
+            </p>
             <div class="form-control-plaintext border-bottom ps-2">
-              {{ personaData?.domicilio || '---' }}
+              {{ personaData?.domicilio || "---" }}
             </div>
           </div>
 
           <div class="row g-2">
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Región:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Región:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                {{ personaData?.region?.nombre || '---' }}
+                {{ personaData?.region?.nombre || "---" }}
               </div>
             </div>
             <div class="col-6">
-              <p class="mb-1"><span class="label-bold small text-muted text-uppercase">Comuna:</span></p>
+              <p class="mb-1">
+                <span class="label-bold small text-muted text-uppercase"
+                  >Comuna:</span
+                >
+              </p>
               <div class="form-control-plaintext border-bottom ps-2">
-                 {{ personaData?.comuna?.nombre || '---' }}
+                {{ personaData?.comuna?.nombre || "---" }}
               </div>
             </div>
           </div>
@@ -134,9 +202,14 @@
   </div>
 
   <!-- Datos Complementarios Card -->
-  <div class="card card-ficha-personal mb-4" formGroupName="datosComplementarios">
+  <div
+    class="card card-ficha-personal mb-4"
+    formGroupName="datosComplementarios"
+  >
     <div class="card-header bg-white border-0 pb-2">
-      <h6 class="title-card text-uppercase text-secondary">DATOS COMPLEMENTARIOS</h6>
+      <h6 class="title-card text-uppercase text-secondary">
+        DATOS COMPLEMENTARIOS
+      </h6>
     </div>
     <div class="card-body pt-2">
       <div class="row">
@@ -145,9 +218,17 @@
           <div class="header-blue standalone py-1">
             <span>Pueblo Originario</span>
             <div class="form-check form-switch cursor-pointer m-0">
-              <input class="form-check-input" type="checkbox" formControlName="puebloOriginario" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="puebloOriginario"
+              />
               <label class="form-check-label ms-2 fw-bold text-white">
-                {{ getFValue('datosComplementarios.puebloOriginario') ? 'SI' : 'NO' }}
+                {{
+                  getFValue("datosComplementarios.puebloOriginario")
+                    ? "SI"
+                    : "NO"
+                }}
               </label>
             </div>
           </div>
@@ -155,9 +236,15 @@
           <div class="header-blue standalone py-1">
             <span>Enfermedad Base</span>
             <div class="form-check form-switch cursor-pointer m-0">
-              <input class="form-check-input" type="checkbox" formControlName="enfermedadBase" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="enfermedadBase"
+              />
               <label class="form-check-label ms-2 fw-bold text-white">
-                {{ getFValue('datosComplementarios.enfermedadBase') ? 'SI' : 'NO' }}
+                {{
+                  getFValue("datosComplementarios.enfermedadBase") ? "SI" : "NO"
+                }}
               </label>
             </div>
           </div>
@@ -165,19 +252,33 @@
           <div class="header-blue standalone py-1">
             <span>Discapacidad</span>
             <div class="form-check form-switch cursor-pointer m-0">
-              <input class="form-check-input" type="checkbox" formControlName="discapacidad" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="discapacidad"
+              />
               <label class="form-check-label ms-2 fw-bold text-white">
-                {{ getFValue('datosComplementarios.discapacidad') ? 'SI' : 'NO' }}
+                {{
+                  getFValue("datosComplementarios.discapacidad") ? "SI" : "NO"
+                }}
               </label>
             </div>
           </div>
-          
+
           <div class="header-blue standalone py-1">
             <span>Cursa Estudios Particulares</span>
             <div class="form-check form-switch cursor-pointer m-0">
-              <input class="form-check-input" type="checkbox" formControlName="cursaEstudiosParticulares" />
-               <label class="form-check-label ms-2 fw-bold text-white">
-                {{ getFValue('datosComplementarios.cursaEstudiosParticulares') ? 'SI' : 'NO' }}
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="cursaEstudiosParticulares"
+              />
+              <label class="form-check-label ms-2 fw-bold text-white">
+                {{
+                  getFValue("datosComplementarios.cursaEstudiosParticulares")
+                    ? "SI"
+                    : "NO"
+                }}
               </label>
             </div>
           </div>
@@ -187,9 +288,15 @@
         <div class="col-md-4 border-end px-3">
           <div class="mb-3">
             <div class="header-blue">Nivel Educacional</div>
-            <select class="form-select custom-select-box" formControlName="idNivelEducacional">
+            <select
+              class="form-select custom-select-box"
+              formControlName="idNivelEducacional"
+            >
               <option value="">Seleccione...</option>
-              <option *ngFor="let n of nivelesEdu" [value]="n.idNivelEducacional">
+              <option
+                *ngFor="let n of nivelesEdu"
+                [value]="n.idNivelEducacional"
+              >
                 {{ n.nombre }}
               </option>
             </select>
@@ -197,9 +304,15 @@
 
           <div class="mb-3">
             <div class="header-blue">Estado Económico del Domicilio</div>
-            <select class="form-select custom-select-box" formControlName="idEstadoEconomico">
+            <select
+              class="form-select custom-select-box"
+              formControlName="idEstadoEconomico"
+            >
               <option value="">Seleccione...</option>
-              <option *ngFor="let ee of estadosEconomicos" [value]="ee.idEstadoEconomico">
+              <option
+                *ngFor="let ee of estadosEconomicos"
+                [value]="ee.idEstadoEconomico"
+              >
                 {{ ee.nombre }}
               </option>
             </select>
@@ -211,17 +324,34 @@
           <!-- PENSION DE ALIMENTOS -->
           <div class="mb-3 p-2 border rounded bg-light">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span class="fw-bold text-primary small text-uppercase">Paga Pensión de Alimentos</span>
+              <span class="fw-bold text-primary small text-uppercase"
+                >Paga Pensión de Alimentos</span
+              >
               <div class="form-check form-switch cursor-pointer">
-                <input class="form-check-input" type="checkbox" formControlName="pagaPensionAlimentos" />
-                <label class="form-check-label ms-2 fw-bold">{{ getFValue('datosComplementarios.pagaPensionAlimentos') ? 'SI' : 'NO' }}</label>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  formControlName="pagaPensionAlimentos"
+                />
+                <label class="form-check-label ms-2 fw-bold">{{
+                  getFValue("datosComplementarios.pagaPensionAlimentos")
+                    ? "SI"
+                    : "NO"
+                }}</label>
               </div>
             </div>
-            <div *ngIf="getFValue('datosComplementarios.pagaPensionAlimentos')" class="mt-2">
-              <label class="form-label small text-muted text-uppercase">Seleccione Rango:</label>
+            <div
+              *ngIf="getFValue('datosComplementarios.pagaPensionAlimentos')"
+              class="mt-2"
+            >
+              <label class="form-label small text-muted text-uppercase"
+                >Seleccione Rango:</label
+              >
               <select class="form-select" formControlName="idRangoPagoPension">
                 <option value="">Seleccione...</option>
-                <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">{{ r.rango }}</option>
+                <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">
+                  {{ r.rango }}
+                </option>
               </select>
             </div>
           </div>
@@ -229,37 +359,74 @@
           <!-- SEGURO SALUD -->
           <div class="mb-3 p-2 border rounded bg-light">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span class="fw-bold text-primary small text-uppercase">Seguro Complementario Salud</span>
+              <span class="fw-bold text-primary small text-uppercase"
+                >Seguro Complementario Salud</span
+              >
               <div class="form-check form-switch cursor-pointer">
-                <input class="form-check-input" type="checkbox" formControlName="tieneSeguroSalud" />
-                <label class="form-check-label ms-2 fw-bold">{{ getFValue('datosComplementarios.tieneSeguroSalud') ? 'SI' : 'NO' }}</label>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  formControlName="tieneSeguroSalud"
+                />
+                <label class="form-check-label ms-2 fw-bold">{{
+                  getFValue("datosComplementarios.tieneSeguroSalud")
+                    ? "SI"
+                    : "NO"
+                }}</label>
               </div>
             </div>
-             <div *ngIf="getFValue('datosComplementarios.tieneSeguroSalud')" class="mt-2">
-               <label class="form-label small text-muted text-uppercase">Seleccione Rango:</label>
-               <select class="form-select" formControlName="idRangoSeguroSalud">
-                  <option value="">Seleccione...</option>
-                  <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">{{ r.rango }}</option>
-               </select>
-             </div>
+            <div
+              *ngIf="getFValue('datosComplementarios.tieneSeguroSalud')"
+              class="mt-2"
+            >
+              <label class="form-label small text-muted text-uppercase"
+                >Seleccione Rango:</label
+              >
+              <select class="form-select" formControlName="idRangoSeguroSalud">
+                <option value="">Seleccione...</option>
+                <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">
+                  {{ r.rango }}
+                </option>
+              </select>
+            </div>
           </div>
 
           <!-- PAGO EDUCACION -->
           <div class="mb-3 p-2 border rounded bg-light">
             <div class="d-flex justify-content-between align-items-center mb-2">
-               <span class="fw-bold text-primary small text-uppercase">Pago en Educación</span>
-               <div class="form-check form-switch cursor-pointer">
-                  <input class="form-check-input" type="checkbox" formControlName="pagoEnEducacion" />
-                  <label class="form-check-label ms-2 fw-bold">{{ getFValue('datosComplementarios.pagoEnEducacion') ? 'SI' : 'NO' }}</label>
-               </div>
+              <span class="fw-bold text-primary small text-uppercase"
+                >Pago en Educación</span
+              >
+              <div class="form-check form-switch cursor-pointer">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  formControlName="pagoEnEducacion"
+                />
+                <label class="form-check-label ms-2 fw-bold">{{
+                  getFValue("datosComplementarios.pagoEnEducacion")
+                    ? "SI"
+                    : "NO"
+                }}</label>
+              </div>
             </div>
-             <div *ngIf="getFValue('datosComplementarios.pagoEnEducacion')" class="mt-2">
-                <label class="form-label small text-muted text-uppercase">Seleccione Rango:</label>
-                <select class="form-select" formControlName="idRangoPagoEducacion">
-                   <option value="">Seleccione...</option>
-                   <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">{{ r.rango }}</option>
-                </select>
-             </div>
+            <div
+              *ngIf="getFValue('datosComplementarios.pagoEnEducacion')"
+              class="mt-2"
+            >
+              <label class="form-label small text-muted text-uppercase"
+                >Seleccione Rango:</label
+              >
+              <select
+                class="form-select"
+                formControlName="idRangoPagoEducacion"
+              >
+                <option value="">Seleccione...</option>
+                <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">
+                  {{ r.rango }}
+                </option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -268,110 +435,235 @@
 
   <!-- Grupo Familiar Card -->
   <div class="card card-ficha-personal">
-    <div class="card-header bg-white border-0 pb-3 d-flex justify-content-between align-items-center">
-      <h6 class="title-card text-uppercase text-secondary mb-2">GRUPO FAMILIAR</h6>
-      <button class="btn btn-sm btn-icon text-success" (click)="addMiembro()" title="Añadir Miembro">
-        <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;"></i>
+    <div
+      class="card-header bg-white border-0 pb-3 d-flex justify-content-between align-items-center"
+    >
+      <h6 class="title-card text-uppercase text-secondary mb-2">
+        GRUPO FAMILIAR
+      </h6>
+      <button
+        class="btn btn-sm btn-icon text-success"
+        (click)="addMiembro()"
+        title="Añadir Miembro"
+      >
+        <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem"></i>
       </button>
     </div>
-    
+
     <div class="card-body">
-      <div *ngIf="grupoFamiliar.length === 0" class="text-center py-4 bg-light rounded-3 mb-3 border border-dashed">
-        <i class="bi bi-people text-muted mb-2" style="font-size: 2rem;"></i>
-        <p class="text-muted small italic mb-0">No se encontraron miembros registrados en el sistema para esta persona.</p>
+      <div
+        *ngIf="grupoFamiliar.length === 0"
+        class="text-center py-4 bg-light rounded-3 mb-3 border border-dashed"
+      >
+        <i class="bi bi-people text-muted mb-2" style="font-size: 2rem"></i>
+        <p class="text-muted small italic mb-0">
+          No se encontraron miembros registrados en el sistema para esta
+          persona.
+        </p>
       </div>
       <div formArrayName="grupoFamiliar">
-        <div *ngFor="let m of grupoFamiliar.controls; let i = index" [formGroupName]="i" class="card mb-4 border-primary shadow-sm">
-          <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
-            <h6 class="mb-0 text-primary fw-bold" style="font-size: 0.85rem;">
+        <div
+          *ngFor="let m of grupoFamiliar.controls; let i = index"
+          [formGroupName]="i"
+          class="card mb-4 border-primary shadow-sm"
+        >
+          <div
+            class="card-header bg-light d-flex justify-content-between align-items-center py-2"
+          >
+            <h6 class="mb-0 text-primary fw-bold" style="font-size: 0.85rem">
               <i class="bi bi-person-fill me-2"></i>MIEMBRO #{{ i + 1 }}
             </h6>
-            <button type="button" class="btn btn-link btn-sm text-danger p-0" (click)="removeElement(grupoFamiliar, i)">
-                <i class="bi bi-trash"></i>
+            <button
+              type="button"
+              class="btn btn-link btn-sm text-danger p-0"
+              (click)="removeElement(grupoFamiliar, i)"
+            >
+              <i class="bi bi-trash"></i>
             </button>
           </div>
           <div class="card-body bg-white p-4">
             <div class="row">
               <div class="col-md-7 border-end">
-                <p class="label-bold small text-muted text-uppercase mb-3 border-bottom pb-1">Identidad y Filiación</p>
+                <p
+                  class="label-bold small text-muted text-uppercase mb-3 border-bottom pb-1"
+                >
+                  Identidad y Filiación
+                </p>
                 <div class="row g-2 mb-3">
                   <div class="col-md-4">
-                    <label class="label-bold small text-muted text-uppercase">RUT</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="rut">
+                    <label class="label-bold small text-muted text-uppercase"
+                      >RUT</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      formControlName="rut"
+                    />
                   </div>
                   <div class="col-md-8">
-                    <label class="label-bold small text-muted text-uppercase">Nombres</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="nombres" />
+                    <label class="label-bold small text-muted text-uppercase"
+                      >Nombres</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      formControlName="nombres"
+                    />
                   </div>
                 </div>
 
                 <div class="row g-2 mb-3">
                   <div class="col-md-6">
-                    <label class="label-bold small text-muted text-uppercase">Apellido Paterno</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="apellidoPaterno" />
+                    <label class="label-bold small text-muted text-uppercase"
+                      >Apellido Paterno</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      formControlName="apellidoPaterno"
+                    />
                   </div>
                   <div class="col-md-6">
-                    <label class="label-bold small text-muted text-uppercase">Apellido Materno</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="apellidoMaterno" />
+                    <label class="label-bold small text-muted text-uppercase"
+                      >Apellido Materno</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      formControlName="apellidoMaterno"
+                    />
                   </div>
                 </div>
 
                 <div class="row g-2 mb-3">
                   <div class="col-md-6">
-                    <label class="label-bold small text-muted text-uppercase">Parentesco</label>
-                    <select *ngIf="!getMControl(m, 'idParentesco')?.disabled" class="form-select form-select-sm" formControlName="idParentesco">
+                    <label class="label-bold small text-muted text-uppercase"
+                      >Parentesco</label
+                    >
+                    <select
+                      *ngIf="!getMControl(m, 'idParentesco')?.disabled"
+                      class="form-select form-select-sm"
+                      formControlName="idParentesco"
+                    >
                       <option value="">Seleccione...</option>
                       <option value="1">Padre/Madre</option>
                       <option value="2">Cónyuge</option>
                       <option value="3">Hijo/a</option>
                       <option value="4">Otro</option>
                     </select>
-                    <input *ngIf="getMControl(m, 'idParentesco')?.disabled" type="text" class="form-control form-control-sm bg-light" formControlName="parentescoName" readonly>
+                    <input
+                      *ngIf="getMControl(m, 'idParentesco')?.disabled"
+                      type="text"
+                      class="form-control form-control-sm bg-light"
+                      formControlName="parentescoName"
+                      readonly
+                    />
                   </div>
                   <div class="col-md-6">
-                    <label class="label-bold small text-muted text-uppercase">F. Nacimiento</label>
-                    <input type="date" class="form-control form-control-sm" formControlName="fechaNacimiento" />
+                    <label class="label-bold small text-muted text-uppercase"
+                      >F. Nacimiento</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control form-control-sm"
+                      formControlName="fechaNacimiento"
+                    />
                   </div>
                 </div>
 
                 <div class="row g-2">
                   <div class="col-md-6">
-                    <label class="label-bold small text-muted text-uppercase">Sistema Salud</label>
-                    <select *ngIf="!getMControl(m, 'idSistemaSalud')?.disabled" class="form-select form-select-sm" formControlName="idSistemaSalud">
+                    <label class="label-bold small text-muted text-uppercase"
+                      >Sistema Salud</label
+                    >
+                    <select
+                      *ngIf="!getMControl(m, 'idSistemaSalud')?.disabled"
+                      class="form-select form-select-sm"
+                      formControlName="idSistemaSalud"
+                    >
                       <option value="">Seleccione...</option>
-                      <option *ngFor="let s of sistemasSalud" [value]="s.idSistemaSalud">{{ s.nombre }}</option>
+                      <option
+                        *ngFor="let s of sistemasSalud"
+                        [value]="s.idSistemaSalud"
+                      >
+                        {{ s.nombre }}
+                      </option>
                     </select>
-                    <input *ngIf="getMControl(m, 'idSistemaSalud')?.disabled" type="text" class="form-control form-control-sm bg-light" formControlName="sistemaSaludName" readonly>
+                    <input
+                      *ngIf="getMControl(m, 'idSistemaSalud')?.disabled"
+                      type="text"
+                      class="form-control form-control-sm bg-light"
+                      formControlName="sistemaSaludName"
+                      readonly
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- SECCIÓN DATOS COMPLEMENTARIOS -->
               <div class="col-md-5 ps-3">
-                <p class="label-bold small text-muted text-uppercase mb-3 border-bottom pb-1">Datos Complementarios</p>
-                
+                <p
+                  class="label-bold small text-muted text-uppercase mb-3 border-bottom pb-1"
+                >
+                  Datos Complementarios
+                </p>
+
                 <div class="mb-3">
-                  <div class="header-blue standalone py-1 px-2 mb-1" style="border-radius: 4px 4px 0 0;">Nivel Educacional</div>
-                  <select class="form-select form-select-sm" style="border-radius: 0 0 4px 4px; border-top: none; border-color: #26388E;" formControlName="idNivelEducacional">
+                  <div
+                    class="header-blue standalone py-1 px-2 mb-1"
+                    style="border-radius: 4px 4px 0 0"
+                  >
+                    Nivel Educacional
+                  </div>
+                  <select
+                    class="form-select form-select-sm"
+                    style="
+                      border-radius: 0 0 4px 4px;
+                      border-top: none;
+                      border-color: #26388e;
+                    "
+                    formControlName="idNivelEducacional"
+                  >
                     <option value="">Seleccione...</option>
-                    <option *ngFor="let n of nivelesEdu" [value]="n.idNivelEducacional">{{ n.nombre }}</option>
+                    <option
+                      *ngFor="let n of nivelesEdu"
+                      [value]="n.idNivelEducacional"
+                    >
+                      {{ n.nombre }}
+                    </option>
                   </select>
                 </div>
 
                 <div class="row g-2 mb-2">
                   <div class="col-6">
-                    <div class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center" style="font-size: 0.65rem;">
+                    <div
+                      class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center"
+                      style="font-size: 0.65rem"
+                    >
                       <span>VIVE EN DOMICILIO</span>
                       <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" style="transform: scale(0.7); margin-left: -2em;" formControlName="viveEnDomicilio" />
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          style="transform: scale(0.7); margin-left: -2em"
+                          formControlName="viveEnDomicilio"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center" style="font-size: 0.65rem;">
+                    <div
+                      class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center"
+                      style="font-size: 0.65rem"
+                    >
                       <span>ES CARGA FAM.</span>
                       <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" style="transform: scale(0.7); margin-left: -2em;" formControlName="esCarga" />
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          style="transform: scale(0.7); margin-left: -2em"
+                          formControlName="esCarga"
+                        />
                       </div>
                     </div>
                   </div>
@@ -379,45 +671,103 @@
 
                 <div class="row g-2 mb-2">
                   <div class="col-6">
-                    <div class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center" style="font-size: 0.65rem;">
+                    <div
+                      class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center"
+                      style="font-size: 0.65rem"
+                    >
                       <span>ENF./DISCAPACIDAD</span>
                       <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" style="transform: scale(0.7); margin-left: -2em;" formControlName="enfermedadDiscapacidad" />
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          style="transform: scale(0.7); margin-left: -2em"
+                          formControlName="enfermedadDiscapacidad"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center" style="font-size: 0.65rem;">
+                    <div
+                      class="header-blue standalone py-1 px-2 d-flex justify-content-between align-items-center"
+                      style="font-size: 0.65rem"
+                    >
                       <span>SEGURO COMP.</span>
                       <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" style="transform: scale(0.7); margin-left: -2em;" formControlName="poseeSeguroComp" />
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          style="transform: scale(0.7); margin-left: -2em"
+                          formControlName="poseeSeguroComp"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Rango Seguro Complementario -->
-                <div *ngIf="getMValue(m, 'poseeSeguroComp')" class="p-2 border rounded bg-light mb-2 animate__animated animate__fadeIn" style="border-color: #26388E !important;">
-                  <label class="form-label small text-primary fw-bold text-uppercase mb-1" style="font-size: 0.65rem;">Rango Pago Seguro:</label>
-                  <select class="form-select form-select-sm border-primary" formControlName="idRangoSeguroComp">
+                <div
+                  *ngIf="getMValue(m, 'poseeSeguroComp')"
+                  class="p-2 border rounded bg-light mb-2 animate__animated animate__fadeIn"
+                  style="border-color: #26388e !important"
+                >
+                  <label
+                    class="form-label small text-primary fw-bold text-uppercase mb-1"
+                    style="font-size: 0.65rem"
+                    >Rango Pago Seguro:</label
+                  >
+                  <select
+                    class="form-select form-select-sm border-primary"
+                    formControlName="idRangoSeguroComp"
+                  >
                     <option value="">Seleccione...</option>
-                    <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">{{ r.rango }}</option>
+                    <option
+                      *ngFor="let r of rangosPago"
+                      [value]="r.idRangoPago"
+                    >
+                      {{ r.rango }}
+                    </option>
                   </select>
                 </div>
 
                 <!-- APORTA AL HOGAR -->
                 <div class="p-2 border rounded bg-light mt-2">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="fw-bold text-primary" style="font-size: 0.7rem;">APORTA AL HOGAR</span>
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-1"
+                  >
+                    <span class="fw-bold text-primary" style="font-size: 0.7rem"
+                      >APORTA AL HOGAR</span
+                    >
                     <div class="form-check form-switch cursor-pointer m-0">
-                      <input class="form-check-input" type="checkbox" style="transform: scale(0.8);" formControlName="aportaHogar" id="aporta_{{i}}" />
-                      <label class="form-check-label ms-1 small fw-bold" for="aporta_{{i}}" style="font-size: 0.7rem;">{{ getMValue(m, 'aportaHogar') ? 'SI' : 'NO' }}</label>
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        style="transform: scale(0.8)"
+                        formControlName="aportaHogar"
+                        id="aporta_{{ i }}"
+                      />
+                      <label
+                        class="form-check-label ms-1 small fw-bold"
+                        for="aporta_{{ i }}"
+                        style="font-size: 0.7rem"
+                        >{{ getMValue(m, "aportaHogar") ? "SI" : "NO" }}</label
+                      >
                     </div>
                   </div>
-                  <div *ngIf="getMValue(m, 'aportaHogar')" class="mt-1 animate__animated animate__fadeIn">
-                    <select class="form-select form-select-sm border-primary" formControlName="idRangoAporte">
+                  <div
+                    *ngIf="getMValue(m, 'aportaHogar')"
+                    class="mt-1 animate__animated animate__fadeIn"
+                  >
+                    <select
+                      class="form-select form-select-sm border-primary"
+                      formControlName="idRangoAporte"
+                    >
                       <option value="">Seleccione Rango...</option>
-                      <option *ngFor="let r of rangosPago" [value]="r.idRangoPago">{{ r.rango }}</option>
+                      <option
+                        *ngFor="let r of rangosPago"
+                        [value]="r.idRangoPago"
+                      >
+                        {{ r.rango }}
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -429,35 +779,64 @@
 
       <div class="mt-4" formGroupName="vivienda">
         <h6 class="title-card text-uppercase text-secondary mb-3">VIVIENDA</h6>
-        
+
         <div class="mb-4">
-          <div class="header-blue standalone py-1 px-3 mb-1" style="border-radius: 8px 8px 0 0;">DIRECCIÓN DOMICILIO</div>
+          <div
+            class="header-blue standalone py-1 px-3 mb-1"
+            style="border-radius: 8px 8px 0 0"
+          >
+            DIRECCIÓN DOMICILIO
+          </div>
           <input
             type="text"
             class="form-control"
-            style="text-align: left; padding-left: 1rem;"
+            style="text-align: left; padding-left: 1rem"
             formControlName="domicilioTexto"
             placeholder="Dirección automática..."
           />
         </div>
 
-        <p class="mb-2"><strong class="text-secondary small text-uppercase">CARACTERÍSTICAS DE LA VIVIENDA:</strong></p>
+        <p class="mb-2">
+          <strong class="text-secondary small text-uppercase"
+            >CARACTERÍSTICAS DE LA VIVIENDA:</strong
+          >
+        </p>
         <div class="row g-2 text-center">
           <div class="col-md-3">
             <div class="header-blue">N° HABITANTES</div>
-            <input type="number" min="0" class="form-control" formControlName="nHabitantes" />
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              formControlName="nHabitantes"
+            />
           </div>
           <div class="col-md-3">
             <div class="header-blue">N° BAÑOS</div>
-            <input type="number" min="0" class="form-control" formControlName="nBanos" />
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              formControlName="nBanos"
+            />
           </div>
           <div class="col-md-3">
             <div class="header-blue">N° HABITACIONES</div>
-            <input type="number" min="0" class="form-control" formControlName="nHabitaciones" />
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              formControlName="nHabitaciones"
+            />
           </div>
           <div class="col-md-3">
             <div class="header-blue">MT2 CONSTRUIDOS</div>
-            <input type="number" min="0" class="form-control" formControlName="mt2Construidos" />
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              formControlName="mt2Construidos"
+            />
           </div>
         </div>
       </div>
@@ -467,64 +846,122 @@
   <!-- Patrimonio Card -->
   <div class="card card-ficha-personal mt-4" formGroupName="patrimonio">
     <div class="card-header bg-white border-0 pb-2">
-      <h6 class="title-card text-uppercase text-secondary">DECLARACIÓN DE PATRIMONIO</h6>
+      <h6 class="title-card text-uppercase text-secondary">
+        DECLARACIÓN DE PATRIMONIO
+      </h6>
     </div>
     <div class="card-body pt-2">
       <div class="row">
         <!-- LADO IZQUIERDO: INGRESOS E INVERSIONES -->
         <div class="col-md-4 pe-4 border-end">
-          <p class="label-bold small text-muted text-uppercase mb-3">INGRESOS ANUALES</p>
-          
+          <p class="label-bold small text-muted text-uppercase mb-3">
+            INGRESOS ANUALES
+          </p>
+
           <div class="mb-3">
-            <div class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center" 
-                 style="background: #26388E; color: white; border-radius: 6px; font-size: 0.85rem;">
+            <div
+              class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center"
+              style="
+                background: #26388e;
+                color: white;
+                border-radius: 6px;
+                font-size: 0.85rem;
+              "
+            >
               <span>Ingreso Líquido Anual</span>
-              <i class="fas fa-info-circle ms-1" style="cursor: help;"
-                 title="Sumatoria anual de sus ingresos líquidos"></i>
+              <i
+                class="fas fa-info-circle ms-1"
+                style="cursor: help"
+                title="Sumatoria anual de sus ingresos líquidos"
+              ></i>
             </div>
-            <input type="text" 
-                   class="form-control form-control-sm text-center fw-bold" 
-                   [value]="getDisplayMonto('patrimonio.ingresoLiquidoAnual')"
-                   (input)="formatMonto($event, 'patrimonio.ingresoLiquidoAnual')" />
+            <input
+              type="text"
+              class="form-control form-control-sm text-center fw-bold"
+              [value]="getDisplayMonto('patrimonio.ingresoLiquidoAnual')"
+              (input)="formatMonto($event, 'patrimonio.ingresoLiquidoAnual')"
+            />
           </div>
 
           <div class="mb-3">
-            <div class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center" 
-                 style="background: #26388E; color: white; border-radius: 6px; font-size: 0.85rem;">
+            <div
+              class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center"
+              style="
+                background: #26388e;
+                color: white;
+                border-radius: 6px;
+                font-size: 0.85rem;
+              "
+            >
               <span>Ingreso Aporte Grupo Familiar</span>
-              <i class="fas fa-info-circle ms-1" style="cursor: help;"
-                 title="Suma anual de los aportes recibidos del grupo familiar"></i>
+              <i
+                class="fas fa-info-circle ms-1"
+                style="cursor: help"
+                title="Suma anual de los aportes recibidos del grupo familiar"
+              ></i>
             </div>
-            <input type="text" 
-                   class="form-control form-control-sm text-center fw-bold" 
-                   [value]="getDisplayMonto('patrimonio.ingresoAporteGrupoFamiliar')"
-                   (input)="formatMonto($event, 'patrimonio.ingresoAporteGrupoFamiliar')" />
+            <input
+              type="text"
+              class="form-control form-control-sm text-center fw-bold"
+              [value]="getDisplayMonto('patrimonio.ingresoAporteGrupoFamiliar')"
+              (input)="
+                formatMonto($event, 'patrimonio.ingresoAporteGrupoFamiliar')
+              "
+            />
           </div>
 
           <div class="mb-4">
-            <div class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center" 
-                 style="background: #26388E; color: white; border-radius: 6px; font-size: 0.85rem;">
+            <div
+              class="header-blue py-1 px-3 mb-1 d-flex justify-content-between align-items-center"
+              style="
+                background: #26388e;
+                color: white;
+                border-radius: 6px;
+                font-size: 0.85rem;
+              "
+            >
               <span>Ingreso Complementario</span>
-              <i class="fas fa-info-circle ms-1" style="cursor: help;"
-                 title="Suma anual de ingresos por otras fuentes complementarias"></i>
+              <i
+                class="fas fa-info-circle ms-1"
+                style="cursor: help"
+                title="Suma anual de ingresos por otras fuentes complementarias"
+              ></i>
             </div>
-            <input type="text" 
-                   class="form-control form-control-sm text-center fw-bold" 
-                   [value]="getDisplayMonto('patrimonio.ingresoComplementario')"
-                   (input)="formatMonto($event, 'patrimonio.ingresoComplementario')" />
+            <input
+              type="text"
+              class="form-control form-control-sm text-center fw-bold"
+              [value]="getDisplayMonto('patrimonio.ingresoComplementario')"
+              (input)="formatMonto($event, 'patrimonio.ingresoComplementario')"
+            />
           </div>
 
-          <p class="label-bold small text-muted text-uppercase mb-3">INVERSIONES / EMPRESAS</p>
-          <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded" style="background: #26388E; color: white;">
+          <p class="label-bold small text-muted text-uppercase mb-3">
+            INVERSIONES / EMPRESAS
+          </p>
+          <div
+            class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+            style="background: #26388e; color: white"
+          >
             <span class="small fw-bold px-2">Participa en Inversiones</span>
             <div class="form-check form-switch m-0">
-              <input class="form-check-input" type="checkbox" formControlName="participaInversiones" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="participaInversiones"
+              />
             </div>
           </div>
-          <div class="d-flex justify-content-between align-items-center p-2 rounded" style="background: #26388E; color: white;">
+          <div
+            class="d-flex justify-content-between align-items-center p-2 rounded"
+            style="background: #26388e; color: white"
+          >
             <span class="small fw-bold px-2">Participa en Empresas</span>
             <div class="form-check form-switch m-0">
-              <input class="form-check-input" type="checkbox" formControlName="participaEmpresas" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="participaEmpresas"
+              />
             </div>
           </div>
         </div>
@@ -533,64 +970,145 @@
         <div class="col-md-8 ps-4">
           <!-- BIENES INMUEBLES -->
           <div class="mb-5">
-            <p class="label-bold mb-3 small text-muted text-uppercase">BIENES INMUEBLES</p>
-            <div class="table-responsive border rounded-3 shadow-sm bg-white overflow-hidden">
-              <table class="table table-sm table-borderless align-middle mb-0 text-center">
+            <p class="label-bold mb-3 small text-muted text-uppercase">
+              BIENES INMUEBLES
+            </p>
+            <div
+              class="table-responsive border rounded-3 shadow-sm bg-white overflow-hidden"
+            >
+              <table
+                class="table table-sm table-borderless align-middle mb-0 text-center"
+              >
                 <thead class="bg-light border-bottom">
                   <tr class="text-secondary small fw-bold">
-                    <th class="py-2" style="width: 15%;">TIPO</th>
-                    <th class="py-2" style="width: 15%;">REGIÓN</th>
-                    <th class="py-2" style="width: 15%;">COMUNA</th>
-                    <th class="py-2" style="width: 30%;">DIRECCIÓN</th>
-                    <th class="py-2" style="width: 15%;">ESTADO</th>
-                    <th class="py-2" style="width: 10%;">ACCIONES</th>
+                    <th class="py-2" style="width: 12%">TIPO</th>
+                    <th class="py-2" style="width: 12%">REGIÓN</th>
+                    <th class="py-2" style="width: 12%">COMUNA</th>
+                    <th class="py-2" style="width: 12%">ROL</th>
+                    <th class="py-2" style="width: 28%">DIRECCIÓN</th>
+                    <th class="py-2" style="width: 14%">ESTADO</th>
+                    <th class="py-2" style="width: 10%">ACCIONES</th>
                   </tr>
                 </thead>
                 <tbody formArrayName="bienesInmuebles">
-                  <tr *ngFor="let b of bienesInmuebles.controls; let i = index" [formGroupName]="i" class="border-bottom-light">
+                  <tr
+                    *ngFor="let b of bienesInmuebles.controls; let i = index"
+                    [formGroupName]="i"
+                    class="border-bottom-light"
+                  >
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idTipoVivienda">
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idTipoVivienda"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let tp of tiposPropiedad" [value]="tp.idTipoPropiedad">{{ tp.nombre }}</option>
+                        <option
+                          *ngFor="let tp of tiposPropiedad"
+                          [value]="tp.idTipoPropiedad"
+                        >
+                          {{ tp.nombre }}
+                        </option>
                       </select>
                     </td>
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idRegion" (change)="onRegionChangeRow(i)">
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idRegion"
+                        (change)="onRegionChangeRow(i)"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let r of regiones" [value]="r.idRegion">{{ r.nombre }}</option>
+                        <option *ngFor="let r of regiones" [value]="r.idRegion">
+                          {{ r.nombre }}
+                        </option>
                       </select>
                     </td>
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idComuna">
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idComuna"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let c of getMValue(b, 'comunasRow')" [value]="c.idComuna">{{ c.nombre }}</option>
+                        <option
+                          *ngFor="let c of getMValue(b, 'comunasRow')"
+                          [value]="c.idComuna"
+                        >
+                          {{ c.nombre }}
+                        </option>
                       </select>
                     </td>
                     <td>
-                      <input type="text" class="form-control form-control-sm border-0 bg-light text-uppercase" placeholder="Dirección..." formControlName="direccion">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm border-0 bg-light text-uppercase"
+                        placeholder="ROL..."
+                        formControlName="rol"
+                        maxlength="20"
+                      />
                     </td>
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idEstadoPropiedad">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm border-0 bg-light text-uppercase"
+                        placeholder="Dirección..."
+                        formControlName="direccion"
+                      />
+                    </td>
+                    <td>
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idEstadoPropiedad"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let ee of estadosEconomicos" [value]="ee.idEstadoEconomico">{{ ee.nombre }}</option>
+                        <option
+                          *ngFor="let ee of estadosEconomicos"
+                          [value]="ee.idEstadoEconomico"
+                        >
+                          {{ ee.nombre }}
+                        </option>
                       </select>
                     </td>
                     <td>
                       <div class="d-flex justify-content-center gap-1">
-                        <button *ngIf="!getMValue(b, 'saved')" class="btn btn-link btn-sm text-success p-0" (click)="saveRow(b)" title="Grabar"><i class="fas fa-save"></i></button>
-                        <button *ngIf="getMValue(b, 'saved')" class="btn btn-link btn-sm text-primary p-0" (click)="editRow(b)" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-link btn-sm text-danger p-0" (click)="removeElement(bienesInmuebles, i)" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                        <button
+                          *ngIf="!getMValue(b, 'saved')"
+                          class="btn btn-link btn-sm text-success p-0"
+                          (click)="saveRow(b)"
+                          title="Grabar"
+                        >
+                          <i class="fas fa-save"></i>
+                        </button>
+                        <button
+                          *ngIf="getMValue(b, 'saved')"
+                          class="btn btn-link btn-sm text-primary p-0"
+                          (click)="editRow(b)"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-link btn-sm text-danger p-0"
+                          (click)="removeElement(bienesInmuebles, i)"
+                          title="Eliminar"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
                       </div>
                     </td>
                   </tr>
                   <tr *ngIf="bienesInmuebles.length === 0">
-                    <td colspan="6" class="py-4 text-muted small italic">No hay registros de bienes inmuebles</td>
+                    <td colspan="7" class="py-4 text-muted small italic">
+                      No hay registros de bienes inmuebles
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="mt-2 d-flex justify-content-end">
-              <button class="btn btn-sm px-4 rounded-pill" style="background: #26388E; color: white;" (click)="addBienInmueble()">
+              <button
+                class="btn btn-sm px-4 rounded-pill"
+                style="background: #26388e; color: white"
+                (click)="addBienInmueble()"
+              >
                 <i class="fas fa-plus me-1"></i>Añadir
               </button>
             </div>
@@ -598,60 +1116,131 @@
 
           <!-- BIENES MUEBLES -->
           <div>
-            <p class="label-bold mb-3 small text-muted text-uppercase">BIENES MUEBLES (VEHÍCULOS)</p>
-            <div class="table-responsive border rounded-3 shadow-sm bg-white overflow-hidden">
-              <table class="table table-sm table-borderless align-middle mb-0 text-center">
+            <p class="label-bold mb-3 small text-muted text-uppercase">
+              BIENES MUEBLES (VEHÍCULOS)
+            </p>
+            <div
+              class="table-responsive border rounded-3 shadow-sm bg-white overflow-hidden"
+            >
+              <table
+                class="table table-sm table-borderless align-middle mb-0 text-center"
+              >
                 <thead class="bg-light border-bottom">
                   <tr class="text-secondary small fw-bold">
-                    <th class="py-2" style="width: 25%;">MARCA</th>
-                    <th class="py-2" style="width: 30%;">MODELO</th>
-                    <th class="py-2" style="width: 15%;">AÑO</th>
-                    <th class="py-2" style="width: 20%;">PAGADO</th>
-                    <th class="py-2" style="width: 10%;">ACCIONES</th>
+                    <th class="py-2" style="width: 25%">MARCA</th>
+                    <th class="py-2" style="width: 30%">MODELO</th>
+                    <th class="py-2" style="width: 15%">AÑO</th>
+                    <th class="py-2" style="width: 20%">PAGADO</th>
+                    <th class="py-2" style="width: 10%">ACCIONES</th>
                   </tr>
                 </thead>
                 <tbody formArrayName="vehiculos">
-                  <tr *ngFor="let v of vehiculos.controls; let i = index" [formGroupName]="i" class="border-bottom-light">
+                  <tr
+                    *ngFor="let v of vehiculos.controls; let i = index"
+                    [formGroupName]="i"
+                    class="border-bottom-light"
+                  >
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idVehiculoMarca">
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idVehiculoMarca"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let m of marcasVehiculo" [value]="m.id">{{ m.descripcion }}</option>
+                        <option *ngFor="let m of marcasVehiculo" [value]="m.id">
+                          {{ m.descripcion }}
+                        </option>
                       </select>
                     </td>
                     <td>
-                      <select class="form-select form-select-sm border-0 bg-light" formControlName="idVehiculoModelo">
+                      <select
+                        class="form-select form-select-sm border-0 bg-light"
+                        formControlName="idVehiculoModelo"
+                      >
                         <option value="">-</option>
-                        <option *ngFor="let mod of modelosVehiculo" [value]="mod.id">{{ mod.descripcion }}</option>
+                        <option
+                          *ngFor="let mod of modelosVehiculo"
+                          [value]="mod.id"
+                        >
+                          {{ mod.descripcion }}
+                        </option>
                       </select>
                     </td>
                     <td>
-                      <input type="text" maxlength="4" class="form-control form-control-sm border-0 bg-light text-center" placeholder="2024" formControlName="anio">
+                      <input
+                        type="text"
+                        maxlength="4"
+                        class="form-control form-control-sm border-0 bg-light text-center"
+                        placeholder="2024"
+                        formControlName="anio"
+                      />
                     </td>
                     <td>
-                      <div class="d-flex justify-content-center align-items-center gap-2">
-                        <i class="fas" [ngClass]="getMValue(v, 'pagado') ? 'fa-check text-success' : 'fa-times text-danger'"></i>
-                        <span class="small fw-bold">{{ getMValue(v, 'pagado') ? 'Sí' : 'No' }}</span>
+                      <div
+                        class="d-flex justify-content-center align-items-center gap-2"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="
+                            getMValue(v, 'pagado')
+                              ? 'fa-check text-success'
+                              : 'fa-times text-danger'
+                          "
+                        ></i>
+                        <span class="small fw-bold">{{
+                          getMValue(v, "pagado") ? "Sí" : "No"
+                        }}</span>
                         <div class="form-check form-switch m-0 ms-1 pointer">
-                          <input class="form-check-input" type="checkbox" style="transform: scale(0.8);" formControlName="pagado" />
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            style="transform: scale(0.8)"
+                            formControlName="pagado"
+                          />
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="d-flex justify-content-center gap-1">
-                        <button *ngIf="!getMValue(v, 'saved')" class="btn btn-link btn-sm text-success p-0" (click)="saveRow(v)" title="Grabar"><i class="fas fa-save"></i></button>
-                        <button *ngIf="getMValue(v, 'saved')" class="btn btn-link btn-sm text-primary p-0" (click)="editRow(v)" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-link btn-sm text-danger p-0" (click)="removeElement(vehiculos, i)" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                        <button
+                          *ngIf="!getMValue(v, 'saved')"
+                          class="btn btn-link btn-sm text-success p-0"
+                          (click)="saveRow(v)"
+                          title="Grabar"
+                        >
+                          <i class="fas fa-save"></i>
+                        </button>
+                        <button
+                          *ngIf="getMValue(v, 'saved')"
+                          class="btn btn-link btn-sm text-primary p-0"
+                          (click)="editRow(v)"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-link btn-sm text-danger p-0"
+                          (click)="removeElement(vehiculos, i)"
+                          title="Eliminar"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
                       </div>
                     </td>
                   </tr>
                   <tr *ngIf="vehiculos.length === 0">
-                    <td colspan="5" class="py-4 text-muted small italic">No hay registros de vehículos</td>
+                    <td colspan="5" class="py-4 text-muted small italic">
+                      No hay registros de vehículos
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="mt-2 d-flex justify-content-end">
-              <button class="btn btn-sm px-4 rounded-pill" style="background: #26388E; color: white;" (click)="addVehiculo()">
+              <button
+                class="btn btn-sm px-4 rounded-pill"
+                style="background: #26388e; color: white"
+                (click)="addVehiculo()"
+              >
                 <i class="fas fa-plus me-1"></i>Añadir Bien Mueble
               </button>
             </div>
@@ -665,10 +1254,10 @@
     <button
       class="btn btn-primary btn-lg px-5 py-3 shadow-sm rounded-pill"
       (click)="guardar()"
-      [disabled]="fichaForm.invalid"
-      style="background: #26388E; border-color: #26388E;"
+      style="background: #26388e; border-color: #26388e"
     >
-      <i class="bi bi-cloud-arrow-up-fill me-2"></i>GUARDAR FICHA SOCIAL COMPLETA
+      <i class="bi bi-cloud-arrow-up-fill me-2"></i>GUARDAR FICHA SOCIAL
+      COMPLETA
     </button>
   </div>
 </div>

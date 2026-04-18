@@ -4,7 +4,7 @@ const urlLogin = 'portal-login/login/';
 const urlFeaCic = 'ws-documentos-fea/';
 
 export const environment = {
-    nameProyect: 'Viviendas Fiscales',
+    nameProyect: 'Bienestar Social',
     produccion: false,
     webComponent: true,
     idSistema: 301,

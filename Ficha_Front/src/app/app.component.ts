@@ -19,4 +19,5 @@ export class AppComponent {
   public nombre: string | undefined
 
   showNav: boolean = environment.webComponent;
+  currentYear: number = new Date().getFullYear();
 }

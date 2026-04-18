@@ -2,7 +2,6 @@ package io.social.ficha_social_backend.model.catalogos;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.math.BigDecimal;
 
 @Data
 @Entity

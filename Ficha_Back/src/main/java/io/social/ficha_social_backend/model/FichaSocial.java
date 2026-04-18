@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -40,21 +39,21 @@ public class FichaSocial {
         actualizadaEn = LocalDateTime.now();
     }
 
-    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private FichaDatosComplementarios datosComplementarios;
 
-    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<FichaGrupoFamiliarMiembro> grupoFamiliar;
 
-    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private FichaVivienda vivienda;
 
-    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<FichaPatrimonioInmueble> bienesInmuebles;
 
-    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<FichaPatrimonioVehiculo> vehiculos;
 
-    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "fichaSocial", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private FichaIngresos ingresos;
 }

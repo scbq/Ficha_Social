@@ -6,8 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity; // <--- Esta faltaba
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional; // <--- Esta faltaba
-
 @RestController
 @RequestMapping("/api/personas")
 @RequiredArgsConstructor

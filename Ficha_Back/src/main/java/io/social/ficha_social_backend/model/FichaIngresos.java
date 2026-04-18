@@ -1,6 +1,5 @@
 package io.social.ficha_social_backend.model;
 
-import io.social.ficha_social_backend.model.catalogos.CatRangoPago;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
